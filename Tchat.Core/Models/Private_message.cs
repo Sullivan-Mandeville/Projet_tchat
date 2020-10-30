@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tchat.Core.Model
+namespace Tchat.Core.Models
 {
     public class Private_message
     {
@@ -20,5 +20,6 @@ namespace Tchat.Core.Model
         [ForeignKey("User")]
         public int id_recepient { get; set; }
         public User recepient { get; set; }
+     
     }
 }

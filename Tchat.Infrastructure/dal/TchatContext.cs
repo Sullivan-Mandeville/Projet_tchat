@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Tchat.Core;
-using Tchat.Core.Model;
+using Tchat.Core.Models;
 
 namespace Tchat.Infrastructure.dal
 {

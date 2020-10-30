@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tchat.Core.Model;
+using Tchat.Core.Models;
 
-namespace Tchat.Core
+namespace Tchat.Core.Models
 {
     public class User
     {
@@ -17,6 +17,6 @@ namespace Tchat.Core
         public DateTime date_create { get; set; }
         public DateTime modification_date { get; set; }
         public List<Category> liste_category { get; set; }
-        public List<Room> Liste_room  { get; set; }
+        public List<Room> liste_room  { get; set; }
     }
 }

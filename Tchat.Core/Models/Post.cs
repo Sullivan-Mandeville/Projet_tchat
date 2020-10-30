@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tchat.Core.Model
+namespace Tchat.Core.Models
 {
     public class Post
     {
