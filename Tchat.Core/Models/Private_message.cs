@@ -11,21 +11,19 @@ namespace Tchat.Core.Models
     public class Private_message
     {
         [Key]
-        public int private_messageID { get; set; }
+        public int id_private_message { get; set; }
 
         public String content { get; set; }
 
-
         public int roomID { get; set; }
-        public virtual Room room { get; set; }
+        public Room room { get; set; }
 
-        [ForeignKey("User")]
-        public int senderID { get; set; }
+        [ForeignKey("sender")]
+        public int id_sender { get; set; }
         public virtual User sender { get; set; }
 
-
-        [ForeignKey("User")] 
-        public int recepientID { get; set; }
+        [ForeignKey("recepient")]
+        public int id_recepient { get; set; }
         public virtual User recepient { get; set; }
         
         
