@@ -16,6 +16,7 @@ namespace Tchat.Core.Models
         public String content { get; set; }
 
         [ForeignKey("Room")]
+        public int id_room { get; set; }
         public Room room { get; set; }
 
         [ForeignKey("User")]
@@ -25,6 +26,7 @@ namespace Tchat.Core.Models
         [ForeignKey("User")]
         public int id_recepient { get; set; }
         public User recepient { get; set; }
+        
         
     }
 }

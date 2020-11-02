@@ -11,7 +11,7 @@ namespace Tchat.Core.Models
 {
     public class User
     {
-     
+        [Key]
         public int id_user { get; set; }
         public String name { get; set; }
         public String firstname { get; set; }

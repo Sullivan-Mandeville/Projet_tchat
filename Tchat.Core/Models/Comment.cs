@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,5 +9,14 @@ namespace Tchat.Core.Models
 {
     public class Comment
     {
+        public int id_comment { get; set; }
+        public String content { get; set; }
+        [ForeignKey("Post")]
+        public int id_post { get; set; }
+        [ForeignKey("User")]
+        public int id_user { get; set; }
+        public virtual ICollection<User> id_user_like { get; set; }
+        
+      //  public int nblike { get; set; }
     }
 }

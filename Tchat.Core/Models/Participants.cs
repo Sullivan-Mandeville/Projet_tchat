@@ -11,17 +11,18 @@ namespace Tchat.Core.Models
 {
     public class Participants
     {
-    
-        public int id_participant { get; set; }
+        
+           [Key]
+            public int id_participant { get; set; }
 
-        [ForeignKey("User")]
-        public int id_user { get; set; }
-        public User user { get; set; }
+            [ForeignKey("User")]
+            public int userID { get; set; }
+            public User user { get; set; }
 
-        [ForeignKey("Room")]
-        public int id_room { get; set; }
-        public Room room { get; set; }
+            [ForeignKey("Room")]
+            public int roomID { get; set; }
+            public Room room { get; set; }
 
-
+            
     }
 }
