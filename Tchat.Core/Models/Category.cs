@@ -11,7 +11,7 @@ namespace Tchat.Core.Models
     public class Category
     {
         [Key]
-        public int id_category { get; set; }
+        public int categoryID { get; set; }
 
         public String category_title { get; set; }
 

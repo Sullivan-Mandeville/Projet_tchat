@@ -11,7 +11,7 @@ namespace Tchat.Core.Models
     public class Room
     {
         [Key]
-        public int id_room { get; set; }
+        public int roomID { get; set; }
         public String name_room { get; set; }
         
     }
