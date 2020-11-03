@@ -1,15 +1,14 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using Tchat.Core;
 using Tchat.Core.Models;
 
-namespace Tchat.Infrastructure.dal
+namespace Tchat.Infrastructure.DAL
 {
     public class TchatContext : DbContext
     {
+    
         public TchatContext() : base("TchatContext")
         {
-            
         }
 
         public DbSet<User> User { get; set; }
@@ -22,9 +21,7 @@ namespace Tchat.Infrastructure.dal
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Conventions.Remove<PluralizingEntitySetNameConvention>();
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
-
-
     }
 }

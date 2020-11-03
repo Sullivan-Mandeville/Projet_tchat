@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Tchat.Core.Models;
-using Tchat.Infrastructure.dal;
+using Tchat.Infrastructure.DAL;
 
 namespace Projet_tchat.Controllers
 {
