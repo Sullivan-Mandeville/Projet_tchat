@@ -6,7 +6,7 @@ namespace Tchat.Infrastructure.DAL
 {
     public class TchatContext : DbContext
     {
-    
+
         public TchatContext() : base("TchatContext")
         {
         }
@@ -22,6 +22,16 @@ namespace Tchat.Infrastructure.DAL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            modelBuilder.Entity<Private_message>()
+            .HasOptional<User>(s => s.sender)
+            .WithRequired()
+            .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Private_message>()
+            .HasOptional<User>(s => s.recepient)
+            .WithRequired()
+            .WillCascadeOnDelete(false);
         }
     }
 }

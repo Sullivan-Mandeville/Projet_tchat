@@ -22,5 +22,10 @@ namespace Tchat.Core.Models
         public DateTime modification_date { get; set; }
         public virtual ICollection<Category> liste_category { get; set; }
         public virtual ICollection<Room> liste_room { get; set; }
+
+        public static implicit operator User(int v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

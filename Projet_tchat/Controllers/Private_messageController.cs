@@ -40,9 +40,9 @@ namespace Projet_tchat.Controllers
         // GET: Private_message/Create
         public ActionResult Create()
         {
-            ViewBag.id_recepient = new SelectList(db.User, "userID", "name");
+            ViewBag.id_private_message = new SelectList(db.User, "userID", "name");
             ViewBag.roomID = new SelectList(db.Room, "roomID", "name_room");
-            ViewBag.id_sender = new SelectList(db.User, "userID", "name");
+            ViewBag.id_private_message = new SelectList(db.User, "userID", "name");
             return View();
         }
 
@@ -60,9 +60,9 @@ namespace Projet_tchat.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.id_recepient = new SelectList(db.User, "userID", "name", private_message.id_recepient);
+            ViewBag.id_private_message = new SelectList(db.User, "userID", "name", private_message.private_messageID);
             ViewBag.roomID = new SelectList(db.Room, "roomID", "name_room", private_message.roomID);
-            ViewBag.id_sender = new SelectList(db.User, "userID", "name", private_message.id_sender);
+            ViewBag.id_private_message = new SelectList(db.User, "userID", "name", private_message.private_messageID);
             return View(private_message);
         }
 
@@ -78,9 +78,9 @@ namespace Projet_tchat.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.id_recepient = new SelectList(db.User, "userID", "name", private_message.id_recepient);
+            ViewBag.id_private_message = new SelectList(db.User, "userID", "name", private_message.private_messageID);
             ViewBag.roomID = new SelectList(db.Room, "roomID", "name_room", private_message.roomID);
-            ViewBag.id_sender = new SelectList(db.User, "userID", "name", private_message.id_sender);
+            ViewBag.id_private_message = new SelectList(db.User, "userID", "name", private_message.private_messageID);
             return View(private_message);
         }
 
@@ -97,9 +97,9 @@ namespace Projet_tchat.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.id_recepient = new SelectList(db.User, "userID", "name", private_message.id_recepient);
+            ViewBag.id_private_message = new SelectList(db.User, "userID", "name", private_message.private_messageID);
             ViewBag.roomID = new SelectList(db.Room, "roomID", "name_room", private_message.roomID);
-            ViewBag.id_sender = new SelectList(db.User, "userID", "name", private_message.id_sender);
+            ViewBag.id_private_message = new SelectList(db.User, "userID", "name", private_message.private_messageID);
             return View(private_message);
         }
 

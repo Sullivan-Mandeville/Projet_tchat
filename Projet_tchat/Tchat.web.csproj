@@ -203,16 +203,16 @@
     <Content Include="Views\Posts\Details.cshtml" />
     <Content Include="Views\Posts\Edit.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
-    <Content Include="Views\Private_message\Create.cshtml" />
-    <Content Include="Views\Private_message\Delete.cshtml" />
-    <Content Include="Views\Private_message\Details.cshtml" />
-    <Content Include="Views\Private_message\Edit.cshtml" />
-    <Content Include="Views\Private_message\Index.cshtml" />
     <Content Include="Views\Rooms\Create.cshtml" />
     <Content Include="Views\Rooms\Delete.cshtml" />
     <Content Include="Views\Rooms\Details.cshtml" />
     <Content Include="Views\Rooms\Edit.cshtml" />
     <Content Include="Views\Rooms\Index.cshtml" />
+    <Content Include="Views\Private_message\Create.cshtml" />
+    <Content Include="Views\Private_message\Delete.cshtml" />
+    <Content Include="Views\Private_message\Details.cshtml" />
+    <Content Include="Views\Private_message\Edit.cshtml" />
+    <Content Include="Views\Private_message\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

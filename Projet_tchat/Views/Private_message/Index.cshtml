@@ -23,6 +23,12 @@
         <th>
             @Html.DisplayNameFor(model => model.content)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_sender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_recepient)
+        </th>
         <th></th>
     </tr>
 
@@ -41,9 +47,15 @@
             @Html.DisplayFor(modelItem => item.content)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_private_message }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_private_message }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_private_message })
+            @Html.DisplayFor(modelItem => item.id_sender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_recepient)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.private_messageID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.private_messageID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.private_messageID })
         </td>
     </tr>
 }

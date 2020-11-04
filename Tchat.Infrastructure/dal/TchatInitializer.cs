@@ -11,7 +11,7 @@ namespace Tchat.Infrastructure.DAL
     public class TchatInitializer : DropCreateDatabaseIfModelChanges<TchatContext>
     {
         protected override void Seed(TchatContext context)
-        {
+        {/*
             var users = new List<User>
             {
                 new User{name="Carson",firstname="Alexander",email="Alexander.Carson@hotmail.com",password="Alexander",date_create=DateTime.Parse("2020-11-03"),modification_date=DateTime.Parse("2020-11-03")},
@@ -20,7 +20,7 @@ namespace Tchat.Infrastructure.DAL
 
             users.ForEach(s => context.User.Add(s));
             context.SaveChanges();
-
+*/
             var rooms = new List<Room>
             {
                 new Room{name_room="tchat1"},
@@ -32,8 +32,8 @@ namespace Tchat.Infrastructure.DAL
 
             var private_messages = new List<Private_message>
             {
-                new Private_message{content="Bonjour",roomID=1,sender=new User {name="Carson",firstname="Alexander",email="Alexander.Carson@hotmail.com",password="Alexander",date_create=DateTime.Parse("2020-11-03"),modification_date=DateTime.Parse("2020-11-03")},recepient=new User{name="Dupont",firstname="Jean",email="Jean.Dupont@hotmail.com",password="Jean",date_create=DateTime.Parse("2020-11-03"),modification_date=DateTime.Parse("2020-11-03")}
-}
+                new Private_message{content="Bonjour",roomID=1,sender=null,recepient=null }
+
             };
 
             private_messages.ForEach(s => context.Private_message.Add(s));
