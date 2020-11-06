@@ -27,7 +27,7 @@ namespace Tchat.Infrastructure.DAL
             .HasOptional<User>(s => s.sender)
             .WithRequired()
             .WillCascadeOnDelete(false);
-
+            
             modelBuilder.Entity<Private_message>()
             .HasOptional<User>(s => s.recepient)
             .WithRequired()
