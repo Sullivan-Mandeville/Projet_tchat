@@ -21,7 +21,7 @@ namespace Tchat.Core.Models
         public DateTime date_create { get; set; }
         public DateTime modification_date { get; set; }
         public virtual ICollection<Category> liste_category { get; set; }
-        public virtual ICollection<Room> liste_room { get; set; }
+        public virtual List<User> liste_user { get; set; }
 
         public static implicit operator User(int v)
         {

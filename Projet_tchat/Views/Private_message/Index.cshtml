@@ -12,22 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.recepient.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.room.name_room)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.sender.name)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.content)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.id_sender)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.id_recepient)
+            @Html.DisplayNameFor(model => model.userID)
         </th>
         <th></th>
     </tr>
@@ -35,22 +23,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.recepient.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.room.name_room)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.sender.name)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.content)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.id_sender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.id_recepient)
+            @Html.DisplayFor(modelItem => item.userID)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.private_messageID }) |

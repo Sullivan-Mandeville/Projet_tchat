@@ -13,8 +13,6 @@ namespace Tchat.Infrastructure.DAL
 
         public DbSet<User> User { get; set; }
         public DbSet<Private_message> Private_message { get; set; }
-        public DbSet<Room> Room { get; set; }
-        public DbSet<Participants> Participants { get; set; }
         public DbSet<Post> Post { get; set; }
         public DbSet<Comment> Comment { get; set; }
         public DbSet<Category> Category { get; set; }
@@ -23,15 +21,6 @@ namespace Tchat.Infrastructure.DAL
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            modelBuilder.Entity<Private_message>()
-            .HasOptional<User>(s => s.sender)
-            .WithRequired()
-            .WillCascadeOnDelete(false);
-            
-            modelBuilder.Entity<Private_message>()
-            .HasOptional<User>(s => s.recepient)
-            .WithRequired()
-            .WillCascadeOnDelete(false);
         }
     }
 }

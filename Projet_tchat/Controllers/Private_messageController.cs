@@ -18,8 +18,7 @@ namespace Projet_tchat.Controllers
         // GET: Private_message
         public ActionResult Index()
         {
-            var private_message = db.Private_message.Include(p => p.recepient).Include(p => p.room).Include(p => p.sender);
-            return View(private_message.ToList());
+            return View(db.Private_message.ToList());
         }
 
         // GET: Private_message/Details/5
@@ -40,9 +39,6 @@ namespace Projet_tchat.Controllers
         // GET: Private_message/Create
         public ActionResult Create()
         {
-            ViewBag.id_private_message = new SelectList(db.User, "userID", "name");
-            ViewBag.roomID = new SelectList(db.Room, "roomID", "name_room");
-            ViewBag.id_private_message = new SelectList(db.User, "userID", "name");
             return View();
         }
 
@@ -51,7 +47,7 @@ namespace Projet_tchat.Controllers
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_private_message,content,roomID,id_sender,id_recepient")] Private_message private_message)
+        public ActionResult Create([Bind(Include = "private_messageID,content,userID")] Private_message private_message)
         {
             if (ModelState.IsValid)
             {
@@ -60,9 +56,6 @@ namespace Projet_tchat.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.id_private_message = new SelectList(db.User, "userID", "name", private_message.private_messageID);
-            ViewBag.roomID = new SelectList(db.Room, "roomID", "name_room", private_message.roomID);
-            ViewBag.id_private_message = new SelectList(db.User, "userID", "name", private_message.private_messageID);
             return View(private_message);
         }
 
@@ -78,9 +71,6 @@ namespace Projet_tchat.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.id_private_message = new SelectList(db.User, "userID", "name", private_message.private_messageID);
-            ViewBag.roomID = new SelectList(db.Room, "roomID", "name_room", private_message.roomID);
-            ViewBag.id_private_message = new SelectList(db.User, "userID", "name", private_message.private_messageID);
             return View(private_message);
         }
 
@@ -89,7 +79,7 @@ namespace Projet_tchat.Controllers
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_private_message,content,roomID,id_sender,id_recepient")] Private_message private_message)
+        public ActionResult Edit([Bind(Include = "private_messageID,content,userID")] Private_message private_message)
         {
             if (ModelState.IsValid)
             {
@@ -97,9 +87,6 @@ namespace Projet_tchat.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.id_private_message = new SelectList(db.User, "userID", "name", private_message.private_messageID);
-            ViewBag.roomID = new SelectList(db.Room, "roomID", "name_room", private_message.roomID);
-            ViewBag.id_private_message = new SelectList(db.User, "userID", "name", private_message.private_messageID);
             return View(private_message);
         }
 

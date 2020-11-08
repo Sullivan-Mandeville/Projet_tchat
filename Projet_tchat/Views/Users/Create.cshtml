@@ -20,57 +20,65 @@
         <form>
             <div class="form-row">
 
-                @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-4 mb-3">
-                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = "Nom", required = "required" } })
-                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "valid-feedback" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4 mb-3">
+                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = "Nom", required = "required" } })
+                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "valid-feedback" })
+                    </div>
                 </div>
 
 
-                @Html.LabelFor(model => model.firstname, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-4 mb-3">
-                    @Html.EditorFor(model => model.firstname, new { htmlAttributes = new { @class = "form-control", placeholder = "Prénom", required = "required" } })
-                    @Html.ValidationMessageFor(model => model.firstname, "", new { @class = "valid-feedback" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.firstname, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4 mb-3">
+                        @Html.EditorFor(model => model.firstname, new { htmlAttributes = new { @class = "form-control", placeholder = "Prénom", required = "required" } })
+                        @Html.ValidationMessageFor(model => model.firstname, "", new { @class = "valid-feedback" })
 
+                    </div>
                 </div>
 
-                @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-4 mb-3">
-                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @type = "mail", @class = "form-control is-invalid", placeholder = "Mail", aria_describedby = "inputGroupPrepend3", required = "required" } })
-                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "invalid-feedback" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4 mb-3">
+                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @type = "mail", @class = "form-control is-invalid", placeholder = "Mail", aria_describedby = "inputGroupPrepend3", required = "required" } })
+                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "invalid-feedback" })
+                    </div>
                 </div>
 
-
-                @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-4 mb-3">
-                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { @type = "password", @class = "form-control", aria_describedby = "passwordHelpBlock", required = "required" } })
-                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "valid-feedback" })
-                    <small id="passwordHelpBlock" class="form-text text-muted">
-                        Votre mot de passe doit comporter entre 8 et 20 carractères, contenir des lettres et des chiffres.
-                    </small>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4 mb-3">
+                        @Html.PasswordFor(model => model.password, new { htmlAttributes = new { @type = "password", @class = "form-control", aria_describedby = "passwordHelpBlock", required = "required" } })
+                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "valid-feedback" })
+                        <small id="passwordHelpBlock" class="form-text text-muted">
+                           <br/> Votre mot de passe doit comporter entre 8 et 20 carractères, contenir des lettres et des chiffres.
+                        </small>
+                    </div>
                 </div>
 
+                    @Html.HiddenFor(model => model.date_create, new { @Value = System.DateTime.Now.ToString() })
+                    @Html.HiddenFor(model => model.modification_date, new { @Value = System.DateTime.Now.ToString() })
 
-                @Html.HiddenFor(model => model.date_create, new { @Value = System.DateTime.Now.ToShortDateString() })
-                @Html.HiddenFor(model => model.modification_date, new { @Value = System.DateTime.Now.ToShortDateString() })
 
+                    <div class="col-md-10 mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
+                            <label class="form-check-label" for="invalidCheck3">
+                                Agree to terms and conditions
+                            </label>
+                            <div class="invalid-feedback">
+                                You must agree before submitting.
+                            </div>
+                        </div>
 
-                <div class="col-md-10 mb-3">
-                    <div class="form-check">
-                        <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
-                        <label class="form-check-label" for="invalidCheck3">
-                            Agree to terms and conditions
-                        </label>
-                        <div class="invalid-feedback">
-                            You must agree before submitting.
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
                         </div>
                     </div>
 
-                    <button class="btn btn-primary" type="submit">Submit</button>
                 </div>
-
-            </div>
-        </form>
+</form>
     </div>
 }
 

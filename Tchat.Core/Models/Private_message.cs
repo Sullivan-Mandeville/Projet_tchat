@@ -15,16 +15,10 @@ namespace Tchat.Core.Models
 
         public String content { get; set; }
 
-        public int roomID { get; set; }
-        public Room room { get; set; }
+        public int userID { get; set; }
 
-        [ForeignKey("sender")]
-        public int id_sender { get; set; }
-        public virtual User sender { get; set; }
 
-        [ForeignKey("recepient")]
-        public int id_recepient { get; set; }
-        public virtual User recepient { get; set; }
+
         
         
     }
