@@ -47,7 +47,7 @@ namespace Projet_tchat.Controllers
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "private_messageID,content,userID")] Private_message private_message)
+        public ActionResult Create([Bind(Include = "private_messageID,content,date_message,id_sender,id_recepient")] Private_message private_message)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Projet_tchat.Controllers
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "private_messageID,content,userID")] Private_message private_message)
+        public ActionResult Edit([Bind(Include = "private_messageID,content,date_message,id_sender,id_recepient")] Private_message private_message)
         {
             if (ModelState.IsValid)
             {

@@ -18,13 +18,13 @@ namespace Tchat.Core.Models
         public DateTime date_message { get; set; }
 
 
-        [ForeignKey("sender")]
-        public int id_sender { get; set; }
-        public User sender { get; set; }
+        [ForeignKey("sender"),Column(Order = 0)]
+        public int? id_sender { get; set; }
+        public virtual User sender { get; set; }
 
-       [ForeignKey("recepient")]
-        public int id_recepient { get; set; }
-        public User recepient { get; set; }
+       [ForeignKey("recepient"),Column(Order = 1)]
+        public int? id_recepient { get; set; }
+        public virtual User recepient { get; set; }
 
 
     }

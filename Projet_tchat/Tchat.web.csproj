@@ -478,6 +478,7 @@
     <Content Include="FrontEnd\js\charts-home.js" />
     <Content Include="FrontEnd\js\front.js" />
     <Content Include="FrontEnd\js\grasp_mobile_progress_circle-1.0.0.min.js" />
+    <Content Include="FrontEnd\lib\Login.js" />
     <Content Include="FrontEnd\vendor\bootstrap\css\bootstrap-grid.css" />
     <Content Include="FrontEnd\vendor\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="FrontEnd\vendor\bootstrap\css\bootstrap-reboot.css" />
