@@ -21,13 +21,19 @@ namespace Projet_tchat.Controllers
 
         public ActionResult Connexion(String log_username, String log_password)
         {
+         
            LoginDTO logg = db.Authentifier(log_username,log_password);
-            if (logg != null)
+            if (logg == null)
             {
-               return RedirectToAction("Index","Categories");
+                return HttpNotFound();
             }
-            return HttpNotFound();
+
+           Session["Nom"] = logg.name;
+           Session["Prenom"] = logg.firstname;
+           Session["ID"] = logg.id_user;
+            return RedirectToAction("Index","Home");
            
+
         }
 
         public LoginController()
