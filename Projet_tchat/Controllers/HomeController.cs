@@ -10,6 +10,7 @@ namespace Projet_tchat.Controllers
     {
         public ActionResult Index()
         {
+
             return View();
         }
 

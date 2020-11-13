@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dal\IDal.cs" />
     <Compile Include="dal\TchatContext.cs" />
     <Compile Include="dal\TchatInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

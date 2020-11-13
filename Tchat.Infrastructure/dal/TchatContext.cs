@@ -17,9 +17,20 @@ namespace Tchat.Infrastructure.DAL
         public DbSet<Comment> Comment { get; set; }
         public DbSet<Category> Category { get; set; }
 
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            modelBuilder.Entity<Private_message>()
+            .HasOptional<User>(s => s.sender)
+            .WithRequired()
+            .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Private_message>()
+            .HasOptional<User>(s => s.recepient)
+            .WithRequired()
+            .WillCascadeOnDelete(false);
 
         }
     }
