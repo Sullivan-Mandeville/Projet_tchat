@@ -2,14 +2,15 @@
 
 @{
     ViewBag.Title = "Create";
+
 }
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Private_message</h4>
         <hr />
@@ -22,21 +23,10 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.date_message, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.date_message, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.date_message, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @Html.HiddenFor(model => model.date_message, new { @Value = System.DateTime.Now.ToString() })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.id_sender, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.id_sender, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.id_sender, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @Html.HiddenFor(model => model.id_sender, htmlAttributes: new { @Value = Session["ID"] })
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.id_recepient, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -53,6 +43,28 @@
         </div>
     </div>
 }
+
+@{ 
+    var md = new MarkdownDeep.Markdown();
+
+
+    // Set options
+    md.ExtraMode = true;
+    md.SafeMode = false;
+
+    string output = md.Transform(input);
+
+
+}
+
+
+
+<div class="mdd_toolbar"></div>
+<textarea cols=50 rows=10 class="mdd_editor"></textarea>
+<div class="mdd_resizer"></div>
+<div class="mdd_preview"></div>
+
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")

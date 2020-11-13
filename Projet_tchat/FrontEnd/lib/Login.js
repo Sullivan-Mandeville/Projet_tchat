@@ -11,6 +11,9 @@
                 dataType: "text",
                 success: function () {
                     window.location.href = '/Home';
+                },
+                error: function () {
+                    alert("Mauvais login ou password");
                 }
 
             });

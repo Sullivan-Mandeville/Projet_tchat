@@ -13,6 +13,7 @@ namespace Tchat.Infrastructure.dal
         LoginDTO Authentifier(string email, string password);
         User ObtenirUtilisateur(int id);
         User ObtenirUtilisateur(string idStr);
+        LoginDTO list_user();
     }
 
 

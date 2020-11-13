@@ -26,12 +26,16 @@ namespace Projet_tchat.Controllers
             if (logg == null)
             {
                 return HttpNotFound();
-            }
-
+            } 
+            
+            String premierCaractere = logg.name.Substring(0,1);
+            String premierCar = logg.firstname.Substring(0, 1);
+            Session["CarNom"] = premierCaractere;
+           Session["CarPrenom"] = premierCar;
            Session["Nom"] = logg.name;
            Session["Prenom"] = logg.firstname;
            Session["ID"] = logg.id_user;
-            return RedirectToAction("Index","Home");
+           return RedirectToAction("Index","Home");
            
 
         }

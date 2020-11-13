@@ -21,6 +21,12 @@ namespace Tchat.Infrastructure.dal
         
          }
 
+        public LoginDTO list_user()
+        {
+            var liste = (from r in db.User select new LoginDTO { firstname = r.firstname, name = r.name, id_user = r.userID }).FirstOrDefault();
+            return liste;
+        }
+
         public User ObtenirUtilisateur(int id)
         {
             throw new NotImplementedException();

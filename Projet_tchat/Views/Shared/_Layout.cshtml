@@ -31,8 +31,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 
-@if (Session["ID"] != null)
-{
+
 
 
 <body>
@@ -44,10 +43,11 @@
                 <!-- User Info-->
                 <div class="sidenav-header-inner text-center">
                     <img src="~/FrontEnd/img/avatar-7.jpg" alt="person" class="img-fluid rounded-circle">
-                    <h2 class="h5">@Session["Nom"] @Session["Prenom"]</h2><span>Web Developer</span>
+                    
+                    <h2 class="h5">@Session["Nom"] @Session["Prenom"] </h2><span>Web Developer</span>
                 </div>
                 <!-- Small Brand information, appears on minimized sidebar-->
-                <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
+                <div class="sidenav-header-logo"><a href=""@Url.Action("Index", "Home")"" class="brand-small text-center"> <strong>@Session["CarPrenom"]</strong><strong class="text-primary">@Session["CarNom"]</strong></a></div>
             </div>
             <!-- Sidebar Navigation Menus-->
             <div class="main-menu">
@@ -173,7 +173,7 @@
                                 </ul>
                             </li>
                             <!-- Log out-->
-                            <li class="nav-item"><i class="fa fa-sign-out"><span class="d-none d-sm-inline-block">@Html.ActionLink("Logout", "Index", "Login") </span></i></li>
+                            <li class="nav-item"><i class="fa fa-sign-out"></i><span class="d-none d-sm-inline-block">@Html.ActionLink("Logout", "Index", "Login") </span></li>
                         </ul>
                     </div>
                 </div>
@@ -194,71 +194,23 @@
             </div>
         </footer>
     </div>
-    <!-- JavaScript files-->
 
-    <script src="~/FrontEnd/vendor/jquery/jquery.min.js"></script>
-    <script src="~/FrontEnd/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="~/FrontEnd/js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
-    <script src="~/FrontEnd/vendor/jquery.cookie/jquery.cookie.js"></script>
-    <script src="~/FrontEnd/vendor/chart.js/Chart.min.js"></script>
-    <script src="~/FrontEnd/vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="~/FrontEnd/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="~/FrontEnd/js/charts-home.js"></script>
-    <script src="~/FrontEnd/lib/Login.js"></script>
-    <!-- Main File-->
-    <script src="~/FrontEnd/js/front.js"></script>
 
-    @RenderSection("scripts", required: false)
-</body> }
-            else
-            {
-@RenderBody()
+</body> 
 
-                <div class="page login-page">
-                    <div class="container">
-                        <div class="form-outer text-center d-flex align-items-center">
-                            <div class="form-inner">
-                                <div class="logo text-uppercase"><span>Bootstrap</span><strong class="text-primary">Dashboard</strong></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-                                <form method="get" class="text-left form-validate">
+<!-- JavaScript files-->
 
-                                    <div class="form-group-material">
-                                        <input id="login-username" type="text" name="loginUsername" required data-msg="Please enter your username" class="input-material">
-                                        <label for="login-username" class="label-material">Username</label>
-                                    </div>
+<script src="~/FrontEnd/vendor/jquery/jquery.min.js"></script>
+<script src="~/FrontEnd/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/FrontEnd/js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
+<script src="~/FrontEnd/vendor/jquery.cookie/jquery.cookie.js"></script>
+<script src="~/FrontEnd/vendor/chart.js/Chart.min.js"></script>
+<script src="~/FrontEnd/vendor/jquery-validation/jquery.validate.min.js"></script>
+<script src="~/FrontEnd/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="~/FrontEnd/js/charts-home.js"></script>
+<script src="~/FrontEnd/lib/Login.js"></script>
+<!-- Main File-->
+<script src="~/FrontEnd/js/front.js"></script>
 
-                                    <div class="form-group-material">
-                                        <input id="login-password" type="password" name="loginPassword" required data-msg="Please enter your password" class="input-material">
-                                        <label for="login-password" class="label-material">Password</label>
-                                    </div>
-
-                                    <div class="form-group text-center">
-                                        <!-- <a id="login" class="btn btn-primary">Login</a>   -->
-                                        <input type="submit" class="btn btn-primary" id="login" value="Se connecter" />
-                                        <!-- This should be submit button but I replaced it with <a> for demo purposes-->
-                                    </div>
-
-                                </form>
-                                <!-- <a href="#" class="forgot-pass">Forgot Password?</a>--><small>Vous avez un autre compte? </small>@Html.ActionLink("Sign in", "Create", "Users")
-                            </div>
-                            <div class="copyrights text-center">
-                                <p>Design by <a href="https://bootstrapious.com/p/bootstrap-4-dashboard" class="external">Bootstrapious</a></p>
-                                <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <script src="~/FrontEnd/vendor/jquery/jquery.min.js"></script>
-                <script src="~/FrontEnd/js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
-                <script src="~/FrontEnd/vendor/jquery.cookie/jquery.cookie.js"></script>
-                <script src="~/FrontEnd/vendor/chart.js/Chart.min.js"></script>
-                <script src="~/FrontEnd/vendor/jquery-validation/jquery.validate.min.js"></script>
-                <script src="~/FrontEnd/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-                <script src="~/FrontEnd/js/charts-home.js"></script>
-                <script src="~/FrontEnd/lib/Login.js"></script>
-                <script src="~/FrontEnd/js/front.js"></script>
-
-                @RenderSection("scripts", required: false)}
-}
+@RenderSection("scripts", required: false)
 </html>
