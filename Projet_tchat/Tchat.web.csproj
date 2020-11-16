@@ -138,6 +138,7 @@
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PostCtrler.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\Private_messageController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -712,6 +713,8 @@
     <Content Include="Views\Private_message\Details.cshtml" />
     <Content Include="Views\Private_message\Edit.cshtml" />
     <Content Include="Views\Private_message\Index.cshtml" />
+    <Content Include="Views\Posts\mesposts.cshtml" />
+    <Content Include="Views\PostCtrler\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

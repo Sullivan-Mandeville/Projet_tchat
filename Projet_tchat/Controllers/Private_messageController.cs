@@ -14,6 +14,7 @@ namespace Projet_tchat.Controllers
 {
     public class Private_messageController : Controller
     {
+
         private TchatContext db = new TchatContext();
 
         // GET: Private_message

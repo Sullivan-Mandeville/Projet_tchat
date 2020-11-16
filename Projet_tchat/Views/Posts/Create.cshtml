@@ -36,15 +36,6 @@
     @Html.HiddenFor(model => model.date_create, new { @Value = System.DateTime.Now.ToString() })
     @Html.HiddenFor(model => model.modification_date, new { @Value = System.DateTime.Now.ToString() })
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.status, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.status)
-                @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.nb_like, htmlAttributes: new { @class = "control-label col-md-2" })

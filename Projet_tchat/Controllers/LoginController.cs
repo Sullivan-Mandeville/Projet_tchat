@@ -30,6 +30,7 @@ namespace Projet_tchat.Controllers
             
             String premierCaractere = logg.name.Substring(0,1);
             String premierCar = logg.firstname.Substring(0, 1);
+            this.Session["IDuser"] = logg.id_user;
             Session["CarNom"] = premierCaractere;
            Session["CarPrenom"] = premierCar;
            Session["Nom"] = logg.name;
@@ -43,6 +44,15 @@ namespace Projet_tchat.Controllers
         public LoginController()
         {
             db = new Repository();
+        }
+
+        public ActionResult LoggedInStatusMessage()
+        {
+            var profileData = this.Session["UserProfile"] as LoginDTO;
+            return View();
+
+            /* From here you could output profileData.FullName to a view and
+            save yourself unnecessary database calls */
         }
 
     }

@@ -6,6 +6,8 @@ using System.Web.Mvc;
 
 namespace Projet_tchat.Controllers
 {
+
+
     public class HomeController : Controller
     {
         public ActionResult Index()

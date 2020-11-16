@@ -15,6 +15,7 @@ namespace Projet_tchat.Controllers
     {
         private TchatContext db = new TchatContext();
 
+
         // GET: Users
         public ActionResult Index()
         {

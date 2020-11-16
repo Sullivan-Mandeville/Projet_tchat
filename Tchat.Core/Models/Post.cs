@@ -22,7 +22,6 @@ namespace Tchat.Core.Models
         public String content { get; set; }
         public DateTime date_create { get; set; }
         public DateTime modification_date { get; set; }
-        public Boolean status { get; set; }
         public virtual ICollection<User> id_user_like { get; set; }
         public int nb_like { get; set; }
     }

@@ -16,6 +16,10 @@ namespace Projet_tchat
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+         
+
         }
+
+
     }
 }

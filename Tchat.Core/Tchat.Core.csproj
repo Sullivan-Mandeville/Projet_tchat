@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\LoginDTO.cs" />
+    <Compile Include="DTO\PostDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Interface\IRepository.cs" />
     <Compile Include="Models\Category.cs" />

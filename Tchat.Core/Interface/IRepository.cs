@@ -14,6 +14,7 @@ namespace Tchat.Infrastructure.dal
         User ObtenirUtilisateur(int id);
         User ObtenirUtilisateur(string idStr);
         LoginDTO list_user();
+        List<PostDTO> post(int id);
     }
 
 
