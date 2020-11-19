@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Tchat.Core.DTO.UserDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Messages</h2>
+
+<div class="row">
+
+ 
+
+    <div class="col-sm-5">
+
+            @foreach (var item in Model)
+            {
+                <div class="list-group">
+                    <button type="button" class="list-group-item list-group-item-action" value=@Html.HiddenFor(modelItem => item.UserID)>  @Html.DisplayFor(modelItem => item.prenom) @Html.DisplayFor(modelItem => item.nom) @Html.DisplayFor(modelItem => item.mail) </button>
+                </div>
+             
+            }
+
+
+       
+    </div>
+</div>

@@ -9,7 +9,9 @@ namespace Tchat.Infrastructure.DAL
 
         public TchatContext() : base("TchatContext")
         {
+            
         }
+        
 
         public DbSet<User> User { get; set; }
         public DbSet<Private_message> Private_message { get; set; }

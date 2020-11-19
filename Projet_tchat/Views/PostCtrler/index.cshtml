@@ -1,28 +1,35 @@
 ﻿@model IEnumerable<Tchat.Core.DTO.PostDTO>
 @{
-    ViewBag.Title = "index";
+    ViewBag.Title = "Index";
 }
 
 <h2>Mes Posts</h2>
+<div class="row">
 
+    <div class="col-sm">
+        <table class="table">
 
-@foreach (var item in Model)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.prenom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.date_create)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nb_like)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.content)
-        </td>
-    </tr>
-}
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.prenom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.date_create)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nb_like)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.content)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Tchat.Core.DTO
 {
-    class UserDTO
+    public class UserDTO
     {
+        public String nom { get; set; }
+        public String prenom { get; set; }
+        public String mail { get; set; }
+        public int UserID { get; set; }
 
     }
 }

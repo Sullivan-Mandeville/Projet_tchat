@@ -142,6 +142,7 @@
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\Private_messageController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\UtilisateursController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -713,11 +714,11 @@
     <Content Include="Views\Private_message\Details.cshtml" />
     <Content Include="Views\Private_message\Edit.cshtml" />
     <Content Include="Views\Private_message\Index.cshtml" />
-    <Content Include="Views\Posts\mesposts.cshtml" />
-    <Content Include="Views\PostCtrler\index.cshtml" />
+    <Content Include="Views\PostCtrler\Index.cshtml" />
+    <Content Include="Views\Utilisateurs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\uploads\" />
     <Folder Include="FrontEnd\vendor\font-awesome\less\" />
     <Folder Include="FrontEnd\vendor\font-awesome\scss\" />
     <Folder Include="Models\" />

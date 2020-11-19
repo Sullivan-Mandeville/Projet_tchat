@@ -24,10 +24,10 @@ namespace Tchat.Infrastructure.dal
 
         }
 
-        public LoginDTO list_user()
+        public List<UserDTO> liste()
         {
-            var liste = (from r in db.User select new LoginDTO { firstname = r.firstname, name = r.name, id_user = r.userID }).FirstOrDefault();
-            return liste;
+            var req = (from r in db.User select new UserDTO { prenom = r.firstname, nom = r.name, UserID = r.userID, mail = r.email });
+            return req.ToList();
         }
 
         public User ObtenirUtilisateur(int id)

@@ -24,8 +24,12 @@ namespace Tchat.Core.Models
         public String password { get; set; }
         public DateTime date_create { get; set; }
         public DateTime modification_date { get; set; }
+
+
+
         public virtual ICollection<Category> liste_category { get; set; }
         public virtual List<User> liste_user { get; set; }
+
 
         [InverseProperty(nameof(Private_message.sender))]
         public ICollection<Private_message> sent_message  { get; set; }
