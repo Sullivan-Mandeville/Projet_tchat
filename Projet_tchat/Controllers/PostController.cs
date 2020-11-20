@@ -42,8 +42,25 @@ namespace Projet_tchat.Controllers
         {
 
               List<PostDTO> Lesposts = db.postByUserID((int)Session["ID"]);
+            List<int> Liste_post_ID = (from r in Lesposts select r.PostID).ToList();
+            List<CommentDTO> LesCommentaires = db.ListeCommentaire(Liste_post_ID);
+            List<PostVM> All_Post_Comment = new List<PostVM>();
 
-            return View(Lesposts);
+            foreach (var item in Lesposts)
+            {
+                PostVM temp = new PostVM();
+                temp.PostID = item.PostID;
+                temp.nom = item.nom;
+                temp.prenom = item.prenom;
+                temp.content = item.content;
+                temp.nb_like = item.nb_like;
+                temp.Comments = LesCommentaires.Where(c => c.PostID == temp.PostID).ToList();
+                All_Post_Comment.Add(temp);
+            }
+
+            return View(All_Post_Comment);
+
+
         }
 
         public PostController()

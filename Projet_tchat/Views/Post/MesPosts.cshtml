@@ -1,35 +1,35 @@
-﻿@model IEnumerable<Tchat.Core.DTO.PostDTO>
+﻿@model IEnumerable<Projet_tchat.Models.PostVM>
 @{
     ViewBag.Title = "MesPosts";
 }
 
+
+
+
 <h2>Mes Posts</h2>
-<div class="row">
 
-    <div class="col-sm">
-        <table class="table">
 
-            @foreach (var item in Model)
-            {
 
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.nom)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.prenom)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.date_create)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.nb_like)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.content)
-                    </td>
-                </tr>
-            }
-        </table>
+@foreach (var item in Model)
+{
+    <div class="container">
+
+
+        <font face="Andale Mono">  @Html.DisplayFor(modelItem => item.nom) @Html.DisplayFor(modelItem => item.prenom)  </font> <font face="Andale Mono" size="2" color="grey">@Html.DisplayFor(modelItem => item.date_create)</font>
+        <div class="col-sm-12">
+
+            @Html.DisplayFor(modelItem => item.content)
+
+
+        </div>
+
+        @Html.DisplayFor(modelItem => item.nb_like)
+
+        @Html.DisplayFor(modelItem => item.Comments)
+
     </div>
-</div>
+}
+<br />
+<br />
+
+
