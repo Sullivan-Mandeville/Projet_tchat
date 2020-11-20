@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
+using Tchat.Core.DTO;
 
-namespace Tchat.Core.DTO
+namespace Projet_tchat.Models
 {
-   public class PostDTO
+    public class PostVM
     {
         public int PostID { get; set; }
         public String nom { get; set; }
@@ -14,5 +14,8 @@ namespace Tchat.Core.DTO
         public String content { get; set; }
         public int nb_like { get; set; }
         public DateTime date_create { get; set; }
+
+        public List<CommentDTO> Comments { get; set; }
+
     }
 }

@@ -1,6 +1,6 @@
-﻿@model IEnumerable<Projet_tchat.Models.PostVM>
+﻿@model IEnumerable<Tchat.Core.DTO.PostDTO>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "MesPosts";
 }
 
 <h2>Mes Posts</h2>
@@ -28,13 +28,6 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.content)
                     </td>
-                </tr>
-                <tr>
-
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Comments)
-                    </td>
-
                 </tr>
             }
         </table>

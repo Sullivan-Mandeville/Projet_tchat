@@ -11,11 +11,10 @@ namespace Tchat.Infrastructure.dal
     public interface IRepository
     {
         LoginDTO Authentifier(string email, string password);
-        User ObtenirUtilisateur(int id);
-        User ObtenirUtilisateur(string idStr);
         List<UserDTO>  liste();
-
-        List<PostDTO> post(int id);
+        List<PostDTO> AllPost();
+        List<CommentDTO> ListeCommentaire(List<int> PostID);
+        List<PostDTO> postByUserID(int id);
     }
 
 
