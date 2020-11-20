@@ -8,7 +8,7 @@ using Tchat.Infrastructure.dal;
 
 namespace Projet_tchat.Controllers
 {
-    public class PostCtrler : Controller
+    public class PostController : Controller
     {
         private IRepository db;
         // GET: PostCtrler
@@ -24,7 +24,7 @@ namespace Projet_tchat.Controllers
 
         }
 
-        public PostCtrler()
+        public PostController()
         {
             db = new Repository();
         }
