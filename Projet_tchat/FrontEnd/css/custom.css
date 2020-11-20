@@ -1,1 +1,7 @@
 /* your styles go here */
+#div_mesposts {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    background-color: #FFFAFA;
+}

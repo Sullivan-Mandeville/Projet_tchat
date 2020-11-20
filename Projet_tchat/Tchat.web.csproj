@@ -160,6 +160,7 @@
     <Content Include="FrontEnd\css\custom.css" />
     <Content Include="FrontEnd\css\fontastic.css" />
     <Content Include="FrontEnd\css\grasp_mobile_progress_circle-1.0.0.min.css" />
+    <Content Include="FrontEnd\css\MonCSS.css" />
     <Content Include="FrontEnd\css\style.blue.css" />
     <Content Include="FrontEnd\css\style.default.css" />
     <Content Include="FrontEnd\css\style.green.css" />

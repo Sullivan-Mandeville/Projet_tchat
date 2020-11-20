@@ -54,6 +54,7 @@ namespace Projet_tchat.Controllers
                 temp.prenom = item.prenom;
                 temp.content = item.content;
                 temp.nb_like = item.nb_like;
+                temp.date_create = item.date_create;
                 temp.Comments = LesCommentaires.Where(c => c.PostID == temp.PostID).ToList();
                 All_Post_Comment.Add(temp);
             }
