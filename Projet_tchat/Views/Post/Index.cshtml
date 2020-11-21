@@ -3,40 +3,25 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Mes Posts</h2>
-<div class="row">
+<h2>Tous les Posts</h2>
+@foreach (var item in Model)
+{
+    <div class="container" id="div_mesposts">
 
-    <div class="col-sm">
-        <table class="table">
 
-            @foreach (var item in Model)
-            {
+        <font face="Andale Mono">  @Html.DisplayFor(modelItem => item.nom) @Html.DisplayFor(modelItem => item.prenom)  </font> <font face="Andale Mono" size="2" color="grey">@Html.DisplayFor(modelItem => item.date_create)</font>
+        <div class="col-sm-12">
 
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.nom)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.prenom)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.date_create)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.nb_like)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.content)
-                    </td>
-                </tr>
-                <tr>
+            @Html.DisplayFor(modelItem => item.content)
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Comments)
-                    </td>
 
-                </tr>
-            }
-        </table>
+        </div>
+
+        @Html.DisplayFor(modelItem => item.nb_like)
+
+        @Html.DisplayFor(modelItem => item.Comments)
+
     </div>
-</div>
+    <br />
+    <br />
+}

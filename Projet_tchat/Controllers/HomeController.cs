@@ -12,8 +12,15 @@ namespace Projet_tchat.Controllers
     {
         public ActionResult Index()
         {
+            if (Session["Nom"] == null)
+            {
+                return RedirectToAction("Index", "Login");
 
-            return View();
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public ActionResult About()

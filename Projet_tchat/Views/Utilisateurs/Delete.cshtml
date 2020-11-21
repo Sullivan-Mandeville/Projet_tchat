@@ -1,0 +1,38 @@
+﻿@model Tchat.Core.Models.User
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Voulez vous vraiment supprimer votre compte?</h3>
+
+    
+<div class="container" id="div_mesposts">
+    <div class="col-sm-12">
+        Nom :  @Html.DisplayFor(model => model.name)
+    </div>
+
+    <div class="col-sm-12">
+        Prénom :  @Html.DisplayFor(model => model.firstname)
+    </div>
+
+    <div class="col-sm-12">
+        Email :  @Html.DisplayFor(model => model.email)
+    </div>
+
+    <div class="col-sm-12">
+        Date :  @Html.DisplayFor(model => model.date_create)
+    </div>
+    <div class="col-sm-12">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> 
+            </div>
+        }
+    </div>
+</div>
