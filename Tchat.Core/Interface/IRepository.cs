@@ -10,6 +10,8 @@ namespace Tchat.Infrastructure.dal
 {
     public interface IRepository
     {
+       
+
         LoginDTO Authentifier(string email, string password);
         List<UserDTO>  liste();
         List<PostDTO> AllPost();

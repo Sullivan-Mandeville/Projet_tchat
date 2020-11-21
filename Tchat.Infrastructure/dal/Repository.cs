@@ -51,7 +51,7 @@ namespace Tchat.Infrastructure.dal
         {
             var post_liste = (
                 from r in db.Post join u in db.User on r.userID equals u.userID where u.userID == UserID 
-                select new PostDTO { content = r.content, nom = u.name, prenom = u.firstname, date_create = r.date_create, nb_like = r.nb_like });
+                select new PostDTO { content = r.content, nom = u.name, prenom = u.firstname, date_create = r.date_create, nb_like = r.nb_like,PostID = r.postID });
                 return post_liste.ToList();
         }
 
