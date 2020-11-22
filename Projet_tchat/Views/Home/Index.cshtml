@@ -1,28 +1,31 @@
-﻿@{
+﻿@model IEnumerable<Projet_tchat.Models.PostVM>
+@{
     ViewBag.Title = "Home Page";
 }
 
+<br/>
+@foreach (var item in Model)
+{
+    <div class="container" id="div_mesposts">
 
-    <div class="jumbotron">
-        <h1>Projet Tchat</h1>
-        <p>Le titre est a changé quand le nom du site sera trouvé </p>
+
+        <font face="Andale Mono">  @Html.DisplayFor(modelItem => item.nom) @Html.DisplayFor(modelItem => item.prenom)  </font> <font face="Andale Mono" size="2" color="grey">@Html.DisplayFor(modelItem => item.date_create)</font>
+        <div class="col-sm-12">
 
 
-        <h1> Bonjour @Session["Nom"] @Session["Prenom"] </h1>
-    </div>
+            @Html.DisplayFor(modelItem => item.content)
 
-    <div class="row">
-        <div class="col-md-4" style="float:left">
-            <h2>Connexion</h2>
 
-            <p> Ici la page de connexion</p>
         </div>
-        <div class="col-md-2" style="float:right;clear:right">
-            <h2>Inscription</h2>
-            <p>Ici la page d'inscription </p>
-        </div>
-    </div>
 
+        @Html.DisplayFor(modelItem => item.nb_like)
+
+        @Html.DisplayFor(modelItem => item.Comments)
+
+    </div>
+    <br />
+    <br />
+}
 
 
 

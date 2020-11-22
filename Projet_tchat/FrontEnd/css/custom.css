@@ -9,3 +9,9 @@
 #modif_post{
     float : right;
 }
+
+#content_post {
+    height: 200px;
+    width: 100%;
+    
+}

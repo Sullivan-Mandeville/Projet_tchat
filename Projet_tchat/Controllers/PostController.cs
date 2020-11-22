@@ -110,7 +110,7 @@ namespace Projet_tchat.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "postID,userID,categoryID,content,date_create,modification_date,status,nb_like")] Post post)
+        public ActionResult Edit([Bind(Include = "postID,userID,categoryID,content,date_create,modification_date,nb_like")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -144,6 +144,27 @@ namespace Projet_tchat.Controllers
             bdd.Post.Remove(post);
             bdd.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        //CREATION
+        public ActionResult Create()
+        {
+            ViewBag.categoryID = new SelectList(bdd.Category, "categoryID", "category_title");
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "postID,userID,categoryID,content,date_create,modification_date,status,nb_like")] Post post)
+        {
+            if (ModelState.IsValid)
+            {
+                bdd.Post.Add(post);
+                bdd.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.categoryID = new SelectList(bdd.Category, "categoryID", "category_title", post.categoryID);
+            return View(post);
         }
 
         public PostController()
