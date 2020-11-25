@@ -36,6 +36,7 @@ namespace Projet_tchat.Controllers
            Session["Nom"] = logg.name;
            Session["Prenom"] = logg.firstname;
            Session["ID"] = logg.id_user;
+
            return RedirectToAction("Index","Home");
            
 

@@ -20,6 +20,7 @@ namespace Tchat.Infrastructure.DAL
         public DbSet<Category> Category { get; set; }
 
 
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

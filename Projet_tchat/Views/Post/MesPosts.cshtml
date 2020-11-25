@@ -23,10 +23,17 @@
 
 
     </div>  
-    <div id="modif_post"><a href="@Url.Action("Delete", "Post", new { id=item.PostID })"><i class="icon-close" ></i> Supprimer </a></div>
-
+    <div id="modif_post"><a href="@Url.Action("Delete", "Post", new { id=item.PostID })"><i class="icon-close"></i> Supprimer </a></div>
+    <br/>
+    
+    <div id="jaimepost">
     @Html.DisplayFor(modelItem => item.nb_like)
 
+     
+    
+    <button type="button" class="btn btn-primary btn-xs jaime" id="@item.PostID"><i class="fas fa-thumbs-up"> J'aime </i></button>
+    <br/>
+    </div>
     @Html.DisplayFor(modelItem => item.Comments)
 
   

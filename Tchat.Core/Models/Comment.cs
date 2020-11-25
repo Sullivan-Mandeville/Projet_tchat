@@ -23,8 +23,5 @@ namespace Tchat.Core.Models
         public int userID { get; set; }
         public virtual User user { get; set; }
 
-       public virtual ICollection<User> id_user_like { get; set; }
-        
-      public int nblike { get; set; }
     }
 }

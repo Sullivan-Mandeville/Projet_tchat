@@ -8,9 +8,11 @@ namespace Tchat.Core.DTO
 {
     public class MessageDTO
     {
-        public UserDTO user { get; set; }
+        public String nom { get; set; }
+        public String prenom { get; set; }
+        public DateTime date_message { get; set; }
         public String content { get; set; }
-        
+        public int id_sender { get; set; }
 
 
     }

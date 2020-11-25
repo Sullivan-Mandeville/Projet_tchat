@@ -71,6 +71,14 @@ namespace Projet_tchat.Controllers
             {
                 bdd.Entry(user).State = EntityState.Modified;
                 bdd.SaveChanges();
+
+                String premierCaractere = user.name.Substring(0, 1);
+                String premierCar = user.firstname.Substring(0, 1);
+                Session["CarNom"] = premierCaractere;
+                Session["CarPrenom"] = premierCar;
+                Session["Nom"] = user.name;
+                Session["Prenom"] = user.firstname;
+
                 return RedirectToAction("Index");
             }
             return View(user);

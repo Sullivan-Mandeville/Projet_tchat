@@ -15,14 +15,6 @@
     @Html.HiddenFor(model => model.postID)
 
     <div class="col-sm-12">
-        @Html.LabelFor(model => model.userID, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.userID, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.userID, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="col-sm-12">
         @Html.LabelFor(model => model.categoryID, "categoryID", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownList("categoryID", null, htmlAttributes: new { @class = "form-control" })
@@ -37,6 +29,7 @@
             @Html.ValidationMessageFor(model => model.content, "", new { @class = "text-danger" })
         </div>
     </div>
+    @Html.HiddenFor(model => model.userID)
     @Html.HiddenFor(model => model.nb_like)
     @Html.HiddenFor(model => model.date_create)
     @Html.HiddenFor(model => model.modification_date, new { @Value = System.DateTime.Now.ToString() })

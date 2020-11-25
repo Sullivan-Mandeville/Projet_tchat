@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Tchat.Core.DTO.MessageDTO>
+@{
+    ViewBag.Title = "MesMessages";
+}
+
+<h2>MesMessages</h2>
+
+@foreach (var item in Model)
+{
+    if((int)Session["ID"] == item.id_sender)
+    {
+<div float="left">
+    <td>
+        @Html.DisplayFor(modelItem => item.nom)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.prenom)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.content)
+    </td>
+
+</div>
+
+    }
+
+    else
+    {<div float="right">
+    <td>
+        @Html.DisplayFor(modelItem => item.nom)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.prenom)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.content)
+    </td>
+
+</div>
+
+    }
+
+}

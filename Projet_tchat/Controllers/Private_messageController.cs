@@ -6,7 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Tchat.Core.DTO;
 using Tchat.Core.Models;
+using Tchat.Infrastructure.dal;
 using Tchat.Infrastructure.DAL;
 
 
@@ -16,6 +18,7 @@ namespace Projet_tchat.Controllers
     {
 
         private TchatContext db = new TchatContext();
+        private IRepository bdd;
 
         // GET: Private_message
         public ActionResult Index()
@@ -118,6 +121,13 @@ namespace Projet_tchat.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult MesMessages()
+        {
+            List<MessageDTO> liste = bdd.message((int)Session["ID"], 1);
+
+            return View(liste);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -125,6 +135,10 @@ namespace Projet_tchat.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public Private_messageController()
+        {
+            bdd = new Repository();
         }
     }
 }

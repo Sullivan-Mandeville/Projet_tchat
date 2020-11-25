@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -167,9 +168,24 @@ namespace Projet_tchat.Controllers
             return View(post);
         }
 
-        public PostController()
+        public ActionResult Jaime(int id_post)
+        {
+            List<User> Lesposts = db.liste_user_id(id_post);
+            Lesposts.Add((User)Session["ID"]);
+            return View(Lesposts);
+
+
+        }
+
+
+    
+
+    public PostController()
         {
             db = new Repository();
         }
+
+
+
     }
 }
