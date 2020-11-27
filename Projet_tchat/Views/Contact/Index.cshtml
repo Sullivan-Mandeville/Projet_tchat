@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Tchat.Core.DTO.UserDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Messages</h2>
+
+<div class="row">
+
+
+
+    <div class="col-sm-5">
+
+        @foreach (var item in Model)
+        {
+        <div class="list-group">
+            @Html.DisplayFor(modelItem => item.prenom)
+            @Html.DisplayFor(modelItem => item.nom)
+            @Html.DisplayFor(modelItem => item.mail)
+            @Html.ActionLink("Envoyer Message", "MesMessages", new { id = item.UserID })
+
+        </div>
+
+
+        }
+
+
+
+    </div>
+</div>

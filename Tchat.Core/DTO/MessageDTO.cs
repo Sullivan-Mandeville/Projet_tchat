@@ -13,6 +13,7 @@ namespace Tchat.Core.DTO
         public DateTime date_message { get; set; }
         public String content { get; set; }
         public int id_sender { get; set; }
+        public int id_recepient { get; set; }
 
 
     }

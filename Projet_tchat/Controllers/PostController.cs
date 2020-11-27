@@ -79,7 +79,7 @@ namespace Projet_tchat.Controllers
                 temp.nom = item.nom;
                 temp.prenom = item.prenom;
                 temp.content = item.content;
-                temp.nb_like = item.nb_like;
+                temp.nb_like = db.NbLike(item.PostID);
                 temp.date_create = item.date_create;
                 temp.Comments = LesCommentaires.Where(c => c.PostID == temp.PostID).ToList();
                 
@@ -168,11 +168,11 @@ namespace Projet_tchat.Controllers
             return View(post);
         }
 
-        public ActionResult Jaime(int id_post)
+        public int Jaime(int id)
         {
-            List<User> Lesposts = db.liste_user_id(id_post);
-            Lesposts.Add((User)Session["ID"]);
-            return View(Lesposts);
+            db.Insertion_like((int)Session["ID"], id);
+            int like = db.NbLike(id);
+            return like;
 
 
         }

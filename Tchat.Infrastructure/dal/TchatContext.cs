@@ -18,12 +18,18 @@ namespace Tchat.Infrastructure.DAL
         public DbSet<Post> Post { get; set; }
         public DbSet<Comment> Comment { get; set; }
         public DbSet<Category> Category { get; set; }
+        public DbSet<LikePost> LikePost { get; set; }
 
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();     
+            
+            modelBuilder.Entity<Post>()
+            .HasOptional<User>(s => s.user)
+            .WithRequired()
+            .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Private_message>()
             .HasOptional<User>(s => s.sender)
@@ -34,6 +40,22 @@ namespace Tchat.Infrastructure.DAL
             .HasOptional<User>(s => s.recepient)
             .WithRequired()
             .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<LikePost>()
+           .HasOptional<User>(s => s.user)
+           .WithRequired()
+           .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<LikePost>()
+            .HasOptional<Post>(s => s.post)
+            .WithRequired()
+            .WillCascadeOnDelete(false);
+
+       
+
+       
+
+
 
         }
     }

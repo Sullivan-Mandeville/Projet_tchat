@@ -122,7 +122,7 @@ namespace Projet_tchat.Controllers
         }
 
         public ActionResult MesMessages()
-        {
+        {// Le 1 est à changer et il aut récupérer l'id de la personne à qui on parle ! (PRENDRE EXEMPLE SUR LE POST)
             List<MessageDTO> liste = bdd.message((int)Session["ID"], 1);
 
             return View(liste);

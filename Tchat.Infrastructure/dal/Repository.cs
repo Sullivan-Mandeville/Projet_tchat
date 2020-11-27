@@ -21,7 +21,7 @@ namespace Tchat.Infrastructure.dal
             var post_liste = (
                 from r in db.Post
                 join u in db.User on r.userID equals u.userID
-                select new PostDTO { content = r.content, nom = u.name, prenom = u.firstname, date_create = r.date_create, nb_like = r.nb_like, PostID = r.postID });
+                select new PostDTO { content = r.content, nom = u.name, prenom = u.firstname, date_create = r.date_create, PostID = r.postID });
             return post_liste.ToList();
         }
 
@@ -37,13 +37,8 @@ namespace Tchat.Infrastructure.dal
             var logg = (from p in db.Post where p.postID = id_post && p.userID =id_user )
         }*/
 
-        public List<User> liste_user_id(int id)
-        {
-            var req = from r in db.Post where r.postID == id 
-                      select r.id_user_like ;
-            return (List<User>)req;
-        }
-      
+
+
         public List<UserDTO> liste()
         {
             var req = (from r in db.User select new UserDTO { prenom = r.firstname, nom = r.name, UserID = r.userID, mail = r.email });
@@ -55,28 +50,42 @@ namespace Tchat.Infrastructure.dal
             var req = (from r in db.Comment
                        join u in db.User on r.userID equals u.userID
                        where PostID.Contains(r.postID)
-                       select new CommentDTO { content = r.content, nom = u.name, prenom = u.firstname, PostID=r.postID }) ;
-                return req.ToList();
+                       select new CommentDTO { content = r.content, nom = u.name, prenom = u.firstname, PostID = r.postID });
+            return req.ToList();
         }
 
         public List<PostDTO> postByUserID(int UserID)
         {
             var post_liste = (
-                from r in db.Post join u in db.User on r.userID equals u.userID where u.userID == UserID 
-                select new PostDTO { content = r.content, nom = u.name, prenom = u.firstname, date_create = r.date_create, nb_like = r.nb_like,PostID = r.postID });
-                return post_liste.ToList();
+                from r in db.Post join u in db.User on r.userID equals u.userID where u.userID == UserID
+                select new PostDTO { content = r.content, nom = u.name, prenom = u.firstname, date_create = r.date_create, PostID = r.postID });
+            return post_liste.ToList();
         }
 
-        public List<MessageDTO> message (int UserID, int id_user)
+        public List<MessageDTO> message(int id_sender, int id_recepient)
         {
             var liste_message = (
                 from r in db.Private_message
-                join u in db.User on r.id_recepient equals u.userID 
+                join u in db.User on r.id_recepient equals u.userID
                 join x in db.User on r.id_sender equals x.userID
-                where (r.id_recepient == UserID || r.id_sender == UserID) && (r.id_recepient == UserID || r.id_sender == UserID)
-                select new MessageDTO { content = r.content, date_message = r.date_message, nom=x.name, prenom=x.firstname,id_sender= (int)r.id_sender }) ;
+                where (r.id_recepient == id_sender || r.id_sender == id_sender) && (r.id_recepient == id_recepient || r.id_sender == id_recepient)
+                select new MessageDTO { content = r.content, date_message = r.date_message, nom = x.name, prenom = x.firstname, id_sender = (int)r.id_sender, id_recepient = (int)r.id_recepient });
 
             return liste_message.ToList();
+        }
+
+        public void Insertion_like(int id_user, int id_post)
+        {
+            LikePost l = new LikePost(id_post, id_user);
+            db.LikePost.Add(l);
+            db.SaveChanges();
+
+        }
+
+        public int NbLike(int id_post)
+        {
+            var nb = (from p in db.LikePost where p.postID == id_post select id_post).ToList().Count();
+            return nb;
         }
 
     }
