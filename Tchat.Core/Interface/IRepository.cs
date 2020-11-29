@@ -18,9 +18,12 @@ namespace Tchat.Infrastructure.dal
         List<CommentDTO> ListeCommentaire(List<int> PostID);
         List<PostDTO> postByUserID(int id);
         List<MessageDTO> message(int UserID, int id_user);
-        void Insertion_like(int id_user, int id_post);
-        int NbLike(int id_post);
-       // PostDTO like(int id_post, int id_user);
+
+    //    void messageprivée(int id_sender, int id_recepient, String content);
+
+
+
+
     }
 
 

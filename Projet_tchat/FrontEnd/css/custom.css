@@ -31,3 +31,15 @@
     width: auto;
 
 }
+
+#personne {
+    border-width: 1px;
+    border-style: solid;
+}
+
+#droite{
+    float : right;
+}
+#invisible{
+    visibility : hidden;
+}

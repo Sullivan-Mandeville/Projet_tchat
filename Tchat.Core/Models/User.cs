@@ -27,14 +27,12 @@ namespace Tchat.Core.Models
 
 
 
-        public virtual ICollection<Category> liste_category { get; set; }
-        public virtual List<User> liste_user { get; set; }
-
-
         [InverseProperty(nameof(Private_message.sender))]
         public ICollection<Private_message> sent_message  { get; set; }
 
         [InverseProperty(nameof(Private_message.recepient))]
         public ICollection<Private_message> received_message { get; set; }
+
+
     }
 }

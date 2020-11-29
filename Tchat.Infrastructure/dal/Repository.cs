@@ -21,7 +21,7 @@ namespace Tchat.Infrastructure.dal
             var post_liste = (
                 from r in db.Post
                 join u in db.User on r.userID equals u.userID
-                select new PostDTO { content = r.content, nom = u.name, prenom = u.firstname, date_create = r.date_create, PostID = r.postID });
+                select new PostDTO { content = r.content, nom = u.name, prenom = u.firstname, date_create = r.date_create,  PostID = r.postID });
             return post_liste.ToList();
         }
 
@@ -74,19 +74,18 @@ namespace Tchat.Infrastructure.dal
             return liste_message.ToList();
         }
 
-        public void Insertion_like(int id_user, int id_post)
+     /*   public void messageprivée(int id_sender, int id_recepient, String content)
         {
-            LikePost l = new LikePost(id_post, id_user);
-            db.LikePost.Add(l);
+            Private_message l = new Private_message(content, id_sender,id_recepient);
+            db.Private_message.Add(l);
             db.SaveChanges();
 
-        }
+        }*/
 
-        public int NbLike(int id_post)
-        {
-            var nb = (from p in db.LikePost where p.postID == id_post select id_post).ToList().Count();
-            return nb;
-        }
+    
+
+
+
 
     }
 }

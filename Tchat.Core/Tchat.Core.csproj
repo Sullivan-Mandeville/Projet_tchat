@@ -63,7 +63,6 @@
     <Compile Include="Interface\IRepository.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Comment.cs" />
-    <Compile Include="Models\LikePost.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Private_message.cs" />
     <Compile Include="Models\User.cs" />

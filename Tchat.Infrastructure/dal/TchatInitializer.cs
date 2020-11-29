@@ -12,6 +12,13 @@ namespace Tchat.Infrastructure.DAL
     {
         protected override void Seed(TchatContext context)
         {
+            var user = new List<User>
+            {
+            new User{name="test",firstname="test",email="test",password="test",date_create=DateTime.Parse("2005-09-01"), modification_date=DateTime.Parse("2005-09-01")}
+            };
+
+            user.ForEach(s => context.User.Add(s));
+            context.SaveChanges();
 
         }
     }

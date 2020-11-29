@@ -18,17 +18,17 @@ namespace Projet_tchat.Controllers
     {
         private IRepository db;
         private TchatContext bdd = new TchatContext();
-        
+
 
         //AFFICHAGE DE TOUS LES POSTS
         public ActionResult Index()
         {
 
-          List<PostDTO> Lesposts = db.AllPost();
-          List<int> Liste_post_ID=  (from r in Lesposts select r.PostID).ToList() ;
-          List<CommentDTO> LesCommentaires = db.ListeCommentaire(Liste_post_ID);
-          List<PostVM> All_Post_Comment = new List<PostVM>();
-            
+            List<PostDTO> Lesposts = db.AllPost();
+            List<int> Liste_post_ID = (from r in Lesposts select r.PostID).ToList();
+            List<CommentDTO> LesCommentaires = db.ListeCommentaire(Liste_post_ID);
+            List<PostVM> All_Post_Comment = new List<PostVM>();
+
             foreach (var item in Lesposts)
             {
                 PostVM temp = new PostVM();
@@ -36,7 +36,7 @@ namespace Projet_tchat.Controllers
                 temp.nom = item.nom;
                 temp.prenom = item.prenom;
                 temp.content = item.content;
-                temp.nb_like = item.nb_like;
+
                 temp.date_create = item.date_create;
                 temp.Comments = LesCommentaires.Where(c => c.PostID == temp.PostID).ToList();
                 All_Post_Comment.Add(temp);
@@ -52,39 +52,40 @@ namespace Projet_tchat.Controllers
                 return View(All_Post_Comment);
             }
 
-            
+
         }
 
         //VOIR MES POSTS
         public ActionResult MesPosts()
-        { 
-            
+        {
+
             if (Session["Nom"] == null)
             {
                 return RedirectToAction("Index", "Login");
 
-            }else
-            {
-            
-
-            List<PostDTO> Lesposts = db.postByUserID((int)Session["ID"]);
-            List<int> Liste_post_ID = (from r in Lesposts select r.PostID).ToList();
-            List<CommentDTO> LesCommentaires = db.ListeCommentaire(Liste_post_ID);
-            List<PostVM> All_Post_Comment = new List<PostVM>();
-
-            foreach (var item in Lesposts)
-            {
-                PostVM temp = new PostVM();
-                temp.PostID = item.PostID;
-                temp.nom = item.nom;
-                temp.prenom = item.prenom;
-                temp.content = item.content;
-                temp.nb_like = db.NbLike(item.PostID);
-                temp.date_create = item.date_create;
-                temp.Comments = LesCommentaires.Where(c => c.PostID == temp.PostID).ToList();
-                
-                All_Post_Comment.Add(temp);
             }
+            else
+            {
+
+
+                List<PostDTO> Lesposts = db.postByUserID((int)Session["ID"]);
+                List<int> Liste_post_ID = (from r in Lesposts select r.PostID).ToList();
+                List<CommentDTO> LesCommentaires = db.ListeCommentaire(Liste_post_ID);
+                List<PostVM> All_Post_Comment = new List<PostVM>();
+
+                foreach (var item in Lesposts)
+                {
+                    PostVM temp = new PostVM();
+                    temp.PostID = item.PostID;
+                    temp.nom = item.nom;
+                    temp.prenom = item.prenom;
+                    temp.content = item.content;
+
+                    temp.date_create = item.date_create;
+                    temp.Comments = LesCommentaires.Where(c => c.PostID == temp.PostID).ToList();
+
+                    All_Post_Comment.Add(temp);
+                }
 
                 return View(All_Post_Comment);
             }
@@ -168,19 +169,12 @@ namespace Projet_tchat.Controllers
             return View(post);
         }
 
-        public int Jaime(int id)
-        {
-            db.Insertion_like((int)Session["ID"], id);
-            int like = db.NbLike(id);
-            return like;
+ 
 
 
-        }
 
 
-    
-
-    public PostController()
+        public PostController()
         {
             db = new Repository();
         }

@@ -20,12 +20,9 @@ namespace Projet_tchat.Controllers
         private TchatContext bdd = new TchatContext();
 
 
+
         // GET: PostCtrler
-        public ActionResult Index()
-        { 
-            List<UserDTO> liste_uti = db.liste();
-            return View(liste_uti);
-        }
+     
 
         public ActionResult Create()
         {
@@ -79,7 +76,7 @@ namespace Projet_tchat.Controllers
                 Session["Nom"] = user.name;
                 Session["Prenom"] = user.firstname;
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
             return View(user);
         }

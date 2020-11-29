@@ -12,7 +12,7 @@ namespace Projet_tchat.Models
         public String nom { get; set; }
         public String prenom { get; set; }
         public String content { get; set; }
-        public int nb_like { get; set; }
+
         public DateTime date_create { get; set; }
 
         public List<CommentDTO> Comments { get; set; }

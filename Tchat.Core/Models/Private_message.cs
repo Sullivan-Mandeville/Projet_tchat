@@ -10,6 +10,8 @@ namespace Tchat.Core.Models
 {
     public class Private_message
     {
+       
+
         [Key]
         public int private_messageID { get; set; }
 
