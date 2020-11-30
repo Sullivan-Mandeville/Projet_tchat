@@ -33,6 +33,7 @@ namespace Projet_tchat.Controllers
             {
                 PostVM temp = new PostVM();
                 temp.PostID = item.PostID;
+               
                 temp.nom = item.nom;
                 temp.prenom = item.prenom;
                 temp.content = item.content;
@@ -169,7 +170,19 @@ namespace Projet_tchat.Controllers
             return View(post);
         }
 
- 
+        [HttpPost]
+        public void createpost(Comment p)
+        {
+            int i = (int)Session["ID"];
+            int id_post = (int)p.postID;
+            
+            Comment c = new Comment { postID = id_post, userID = i, content = p.content };
+            bdd.Comment.Add(c);
+            bdd.SaveChanges();
+
+
+        }
+
 
 
 

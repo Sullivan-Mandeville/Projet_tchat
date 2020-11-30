@@ -15,10 +15,23 @@
 
 
     </div>
-
-
-
     @Html.DisplayFor(modelItem => item.Comments)
+
+    <div class="form-row">
+        <div id="contenu_comment" class="form-group col-md-11">
+            <textarea id="ta" class="form-control">  </textarea>
+
+        </div>
+        <div class="col">
+            <input type="submit" value="Envoyer" class="btn btn-primary mb-2 fairecom" id="@item.PostID" />
+        </div>
+
+    </div>
+
+
+
+
+
 
 </div>
                 <br />

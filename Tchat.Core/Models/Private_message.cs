@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Tchat.Core.Models
 {
-    public class Private_message
+    public class Private_message 
     {
        
 

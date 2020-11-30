@@ -489,8 +489,10 @@
     <Content Include="FrontEnd\js\charts-home.js" />
     <Content Include="FrontEnd\js\front.js" />
     <Content Include="FrontEnd\js\grasp_mobile_progress_circle-1.0.0.min.js" />
+    <Content Include="FrontEnd\lib\Commentaire.js" />
     <Content Include="FrontEnd\lib\fnc_jaime.js" />
     <Content Include="FrontEnd\lib\Login.js" />
+    <Content Include="FrontEnd\lib\SendMessage.js" />
     <Content Include="FrontEnd\vendor\bootstrap\css\bootstrap-grid.css" />
     <Content Include="FrontEnd\vendor\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="FrontEnd\vendor\bootstrap\css\bootstrap-reboot.css" />
@@ -722,7 +724,7 @@
     <Content Include="Views\Private_message\MesMessages.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Contact\MesMessages.cshtml" />
-    <Content Include="Views\Contact\Create.cshtml" />
+    <Content Include="Views\Login\Deco.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\uploads\" />

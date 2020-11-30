@@ -25,35 +25,28 @@ namespace Projet_tchat.Controllers
 
         public ActionResult MesMessages(int id)
         {
-           // MessageModel mm = new MessageModel();
-           // mm.messageVue = bdd.message((int)Session["ID"], id);
-           // mm.messageEdit = bdd.messsageprivée((int)Session["id"],id,content);
+            // MessageModel mm = new MessageModel();
+            // mm.messageVue = bdd.message((int)Session["ID"], id);
+            // mm.messageEdit = bdd.messsageprivée((int)Session["id"],id,content);
+            Session["ID_send"] = id;
             List<MessageDTO> liste = bdd.message((int)Session["ID"], id);
+
             return View(liste);
         }
 
-        public ActionResult Create()
-        {
-            return View();
-        }
-
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "private_messageID,content,date_message,id_sender,id_recepient")] Private_message private_message)
+      
+        public void createmessage(Private_message p)
         {
-            if (ModelState.IsValid)
-            {
-                db.Private_message.Add(private_message);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            int i = (int)Session["ID"];
+            int id = (int)Session["ID_send"];
+           
 
-            return View(private_message);
-        }
+            Private_message pm = new Private_message { id_sender = i, id_recepient = id, date_message = DateTime.Now, content = p.content };
+            db.Private_message.Add(pm);
+            db.SaveChanges();
 
-        public ActionResult Envoyer()
-        {
-            return View();
+
         }
 
         public ContactController()

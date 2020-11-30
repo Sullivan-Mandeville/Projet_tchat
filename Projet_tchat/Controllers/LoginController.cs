@@ -42,6 +42,12 @@ namespace Projet_tchat.Controllers
 
         }
 
+        public ActionResult Deco()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
+        }
+
         public LoginController()
         {
             db = new Repository();

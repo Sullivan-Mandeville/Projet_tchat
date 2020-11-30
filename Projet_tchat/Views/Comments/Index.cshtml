@@ -20,9 +20,7 @@
         <th>
             @Html.DisplayNameFor(model => model.userID)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nblike)
-        </th>
+       
         <th></th>
     </tr>
 
@@ -37,9 +35,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.userID)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nblike)
-        </td>
+      
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.commentID }) |
             @Html.ActionLink("Details", "Details", new { id=item.commentID }) |

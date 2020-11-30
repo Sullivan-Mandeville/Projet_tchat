@@ -21,7 +21,7 @@
     height: auto;
     margin: auto;
     width: auto;
-
+   
 }
 
 #reception {
@@ -29,7 +29,7 @@
     height: auto;
     margin: auto;
     width: auto;
-
+   
 }
 
 #personne {
@@ -42,4 +42,14 @@
 }
 #invisible{
     visibility : hidden;
+}
+#ta {
+    display: inline-block;
+    width: 100%;
+    resize: none;
+}
+
+
+#env{
+    align-content : center ;
 }

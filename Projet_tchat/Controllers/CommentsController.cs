@@ -49,7 +49,7 @@ namespace Projet_tchat.Controllers
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "commentID,content,postID,userID,nblike")] Comment comment)
+        public ActionResult Create([Bind(Include = "commentID,content,postID,userID")] Comment comment)
         {
             if (ModelState.IsValid)
             {
