@@ -1,49 +1,51 @@
 ﻿@model Tchat.Core.Models.Post
 
 @{ ViewBag.Title = "Create"; }
+@section Styles{
+ 
+}
+<br />
 
-<br/>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-    @using (Html.BeginForm())
-    {
-@Html.AntiForgeryToken()
+    <div class="container">
+        <h4>Post</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.userID, htmlAttributes: new { @Value = Session["ID"] })
 
-                <div class="container">
-                    <h4>Post</h4>
-                    <hr />
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    @Html.HiddenFor(model => model.userID, htmlAttributes: new { @Value = Session["ID"] })
-
-                    <div class="col-sm-12">
-                        Catégorie :
-                        <div class="col-md-12">
-
-
-                            @Html.DropDownList("categoryID", null, htmlAttributes: new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.categoryID, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="col-md-12">
-                        Contenu :
-                        <div class="col-md-12">
-                            @Html.TextAreaFor(model => model.content, new { @id = "content_post" })
-                            @Html.ValidationMessageFor(model => model.content, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    @Html.HiddenFor(model => model.date_create, new { @Value = System.DateTime.Now.ToString() })
-                    @Html.HiddenFor(model => model.modification_date, new { @Value = System.DateTime.Now.ToString() })
+        <div class="col-sm-12">
+            Catégorie :
+            <div class="col-md-12">
 
 
+                @Html.DropDownList("categoryID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.categoryID, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Create" class="btn btn-default" />
-                        </div>
-                    </div>
-                </div>}
+        <div class="col-md-12">
+            Contenu :
+            <div class="col-md-12">
+                @Html.TextAreaFor(model => model.content, new { @id = "content_post" })
+                @Html.ValidationMessageFor(model => model.content, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
+        @Html.HiddenFor(model => model.date_create, new { @Value = System.DateTime.Now.ToString() })
+        @Html.HiddenFor(model => model.modification_date, new { @Value = System.DateTime.Now.ToString() })
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

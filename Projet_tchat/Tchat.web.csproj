@@ -492,7 +492,10 @@
     <Content Include="FrontEnd\lib\Commentaire.js" />
     <Content Include="FrontEnd\lib\fnc_jaime.js" />
     <Content Include="FrontEnd\lib\Login.js" />
+    <Content Include="FrontEnd\lib\MEFPost.js" />
+    <Content Include="FrontEnd\lib\Refresh.js" />
     <Content Include="FrontEnd\lib\SendMessage.js" />
+    <Content Include="FrontEnd\lib\TESTJS.js" />
     <Content Include="FrontEnd\vendor\bootstrap\css\bootstrap-grid.css" />
     <Content Include="FrontEnd\vendor\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="FrontEnd\vendor\bootstrap\css\bootstrap-reboot.css" />

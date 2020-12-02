@@ -74,18 +74,6 @@ namespace Tchat.Infrastructure.dal
             return liste_message.ToList();
         }
 
-     /*   public void messageprivée(int id_sender, int id_recepient, String content)
-        {
-            Private_message l = new Private_message(content, id_sender,id_recepient);
-            db.Private_message.Add(l);
-            db.SaveChanges();
-
-        }*/
-
-    
-
-
-
 
     }
 }

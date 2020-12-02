@@ -113,6 +113,7 @@ namespace Projet_tchat.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "postID,userID,categoryID,content,date_create,modification_date,nb_like")] Post post)
         {
             if (ModelState.IsValid)
@@ -157,6 +158,7 @@ namespace Projet_tchat.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "postID,userID,categoryID,content,date_create,modification_date,status,nb_like")] Post post)
         {
             if (ModelState.IsValid)
@@ -171,16 +173,31 @@ namespace Projet_tchat.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public void createpost(Comment p)
         {
             int i = (int)Session["ID"];
+            System.Diagnostics.Debug.WriteLine("ID USER" +i);
             int id_post = (int)p.postID;
-            
+            System.Diagnostics.Debug.WriteLine("ID POST"+id_post);
+
             Comment c = new Comment { postID = id_post, userID = i, content = p.content };
             bdd.Comment.Add(c);
             bdd.SaveChanges();
 
 
+        }
+
+        public JsonResult GetPostContent()
+        {
+            List<PostDTO> Lesposts = db.AllPost();
+            return Json(Lesposts);
+        }
+
+        public JsonResult GetPostByIDUser()
+        {
+            List<PostDTO> Lesposts = db.postByUserID((int)Session["ID"]);
+            return Json(Lesposts);
         }
 
 

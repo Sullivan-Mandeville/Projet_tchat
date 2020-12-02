@@ -13,6 +13,5 @@ namespace Tchat.Core.DTO
         public String content { get; set; }
         public String nom { get; set; }
         public String prenom { get; set; }
-        public int nblike { get; set; }
     }
 }

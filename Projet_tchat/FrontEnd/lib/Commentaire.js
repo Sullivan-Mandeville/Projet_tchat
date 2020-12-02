@@ -2,15 +2,16 @@
 
     $('.fairecom').click(function (e) {
         e.preventDefault();
-          
-        var content = $("#contenu_comment textarea").val();
-        var id = $(this).attr("id");
-       // alert($("#contenu_comment textarea").val());
-        //alert("T'as liké le post" + id);
+        var id = $(this).attr("id"); 
+        var content = $("#"+id+" textarea").val();
+       
+       
+           //  alert(content);
+            // alert("T'as liké le post" + id);
         var Data = {
 
             content: content,
-            id : id
+            postID : id
 
         };
         console.log(Data);
@@ -18,7 +19,7 @@
             type: "POST",
             url: "/Post/createpost",
             data: Data,
-            dataType: "JSON",
+            dataType: "text",
             success: function () {
                 location.reload();
 

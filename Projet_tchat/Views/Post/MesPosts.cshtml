@@ -12,34 +12,45 @@
 
 @foreach (var item in Model)
 {
-<div class="container" id="div_mesposts">
+    <div class="container" id="div_mesposts">
 
 
-    <font face="Andale Mono">  @Html.DisplayFor(modelItem => item.nom) @Html.DisplayFor(modelItem => item.prenom) </font> <font face="Andale Mono" size="2" color="grey">@Html.DisplayFor(modelItem => item.date_create)</font>
-    <a href="@Url.Action("Index", "Categories")">  <div id="modif_post"><a href="@Url.Action("Edit", "Post", new { id=item.PostID })"><i class="fas fa-pencil-square-o" ></i></a></div>
-    <div class="col-sm-12">
+        <font face="Andale Mono">  @Html.DisplayFor(modelItem => item.nom) @Html.DisplayFor(modelItem => item.prenom) </font> <font face="Andale Mono" size="2" color="grey">@Html.DisplayFor(modelItem => item.date_create)</font>
+        <a href="@Url.Action("Index", "Categories")">
+            <div id="modif_post"><a href="@Url.Action("Edit", "Post", new { id=item.PostID })"><i class="fas fa-pencil-square-o"></i></a></div>
+            <div class="col-sm-12 USPOST">
 
-        @Html.DisplayFor(modelItem => item.content)
 
 
-    </div>  
-    <div id="modif_post"><a href="@Url.Action("Delete", "Post", new { id=item.PostID })"><i class="icon-close"></i> Supprimer </a></div>
-    <br/>
-    
 
-     
-    
-    <button type="button" class="btn btn-primary btn-xs jaime" id="@item.PostID"><i class="fas fa-thumbs-up"> J'aime </i></button>
-    <br/>
-   
-    @Html.DisplayFor(modelItem => item.Comments)
+            </div>
+            <div id="modif_post"><a href="@Url.Action("Delete", "Post", new { id=item.PostID })"><i class="icon-close"></i> Supprimer </a></div>
+            <br />
 
-  
 
-</div>
+
+
+            <button type="button" class="btn btn-primary btn-xs jaime" id="@item.PostID"><i class="fas fa-thumbs-up"> J'aime </i></button>
+            <br />
+
+            @Html.DisplayFor(modelItem => item.Comments)
+
+
+
+    </div>
     <br />
     <br />
 }
 
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
+<!-- include codemirror (codemirror.css, codemirror.js, xml.js, formatting.js) -->
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.css">
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.css">
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/mode/xml/xml.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/2.36.0/formatting.js"></script>
+<script src="~/FrontEnd/lib/TESTJS.js"></script>
 
 

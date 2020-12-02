@@ -8,18 +8,15 @@
 
 
     <font face="Andale Mono">  @Html.DisplayFor(modelItem => item.nom) @Html.DisplayFor(modelItem => item.prenom)  </font> <font face="Andale Mono" size="2" color="grey">@Html.DisplayFor(modelItem => item.date_create)</font>
-    <div class="col-sm-12">
-
-
-        @Html.DisplayFor(modelItem => item.content)
+    <div class="col-sm-12 MEFPOST">
 
 
     </div>
     @Html.DisplayFor(modelItem => item.Comments)
 
-    <div class="form-row">
+    <div class="form-row" id="@item.PostID">
         <div id="contenu_comment" class="form-group col-md-11">
-            <textarea id="ta" class="form-control">  </textarea>
+            <textarea  class="form-control" id="ta">  </textarea>
 
         </div>
         <div class="col">

@@ -4,65 +4,76 @@
 }
 <h2>MesMessages</h2>
 <div class="container">
-    <div id="message">
+    <div id="divi">
+        <div id="message">
 
 
 
-        @foreach (var item in Model)
-        {
-            if ((int)Session["ID"] == item.id_sender)
+            @foreach (var item in Model)
             {
-                <br/>
-                <div id="envoyer">
-                    @Html.DisplayFor(modelItem => item.nom)
+                if ((int)Session["ID"] == item.id_sender)
+                {
+                    <br />
+                    <div id="envoyer">
+                        @Html.DisplayFor(modelItem => item.nom)
 
-                    @Html.DisplayFor(modelItem => item.prenom)
+                        @Html.DisplayFor(modelItem => item.prenom)
 
 
-                </div><br />
+                    </div><br />
 
-                <div id="envoyer" class="alert alert-primary col-lg-5">
+                    <div id="envoyer" class="alert alert-primary col-lg-5">
 
-                    @Html.DisplayFor(modelItem => item.content)
+                        @Html.DisplayFor(modelItem => item.content)
 
-                </div> <br /><br /><br />
+                    </div> <br /><br /><br />
+
+                }
+
+                else
+                {
+                    <br />
+                    <div id="reception">
+                        @Html.DisplayFor(modelItem => item.nom)
+
+                        @Html.DisplayFor(modelItem => item.prenom)
+                    </div><br />
+                    <div id="reception" class="alert alert-danger col-lg-5">
+                        @Html.DisplayFor(modelItem => item.content)
+
+
+                    </div><br /><br /><br />
+
+                }
 
             }
 
-            else
-            {
-                <br/>
-                <div id="reception">
-                    @Html.DisplayFor(modelItem => item.nom)
-
-                    @Html.DisplayFor(modelItem => item.prenom)
-                </div><br />
-                <div id="reception" class="alert alert-danger col-lg-5">
-                    @Html.DisplayFor(modelItem => item.content)
-
-
-                </div><br /><br /><br/>
-
-            }
-
-        }
-
+        </div>
     </div>
-    <br/>
-    <br/>
+
+
+    <br />
+    <br />
     <div class="form-row">
         <div id="contenu_message" class="form-group col-md-11">
             <textarea id="ta" class="form-control">  </textarea>
 
         </div>
         <div class="col">
-            <input type="submit" value="Envoyer" class="btn btn-primary mb-2"id="send"  />
+            <input type="submit" value="Envoyer" class="btn btn-primary mb-2" id="send"/> 
         </div>
-        
+
     </div>
-    </div>
+
+</div>
+
+
+
 <script>
-    $('#send').setTimeout(function () { windows.location.reload}, 5000);
-        
-    
+
+   
+
 </script>
+
+
+

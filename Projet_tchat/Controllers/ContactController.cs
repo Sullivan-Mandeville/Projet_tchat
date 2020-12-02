@@ -23,11 +23,10 @@ namespace Projet_tchat.Controllers
             return View(liste_contact);
         }
 
+        
         public ActionResult MesMessages(int id)
         {
-            // MessageModel mm = new MessageModel();
-            // mm.messageVue = bdd.message((int)Session["ID"], id);
-            // mm.messageEdit = bdd.messsageprivée((int)Session["id"],id,content);
+          
             Session["ID_send"] = id;
             List<MessageDTO> liste = bdd.message((int)Session["ID"], id);
 
