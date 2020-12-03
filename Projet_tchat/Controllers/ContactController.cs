@@ -19,18 +19,38 @@ namespace Projet_tchat.Controllers
         // GET: Contact
         public ActionResult Index()
         {
+            if (Session["Nom"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+
+            }
+            else
+            {
+                
             List<UserDTO> liste_contact = bdd.liste();
             return View(liste_contact);
+            }
+
         }
 
         
         public ActionResult MesMessages(int id)
         {
-          
-            Session["ID_send"] = id;
+            if (Session["Nom"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+
+            }
+            else
+            {
+               Session["ID_send"] = id;
             List<MessageDTO> liste = bdd.message((int)Session["ID"], id);
 
             return View(liste);
+            }
+
+
+            
         }
 
         [HttpPost]

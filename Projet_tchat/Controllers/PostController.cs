@@ -40,6 +40,7 @@ namespace Projet_tchat.Controllers
 
                 temp.date_create = item.date_create;
                 temp.Comments = LesCommentaires.Where(c => c.PostID == temp.PostID).ToList();
+                
                 All_Post_Comment.Add(temp);
             }
 
@@ -176,6 +177,7 @@ namespace Projet_tchat.Controllers
         [ValidateInput(false)]
         public void createpost(Comment p)
         {
+
             int i = (int)Session["ID"];
             System.Diagnostics.Debug.WriteLine("ID USER" +i);
             int id_post = (int)p.postID;

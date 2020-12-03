@@ -36,7 +36,7 @@
                         <div class="form-group-material">
 
 
-                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @type = "mail", @class = "input-material", id = "register-email", aria_describedby = "inputGroupPrepend3", required = "Entrez votre email" } })
+                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @type = "email", @class = "input-material", id = "register-email", aria_describedby = "inputGroupPrepend3", required = "Entrez votre email" } })
                             <label for="register-email" class="label-material">Adresse Mail</label>
                             @Html.ValidationMessageFor(model => model.email, "", new { @class = "invalid-feedback" })
 
@@ -59,10 +59,7 @@
                         </div>
                     </form><small>Avez vous un compte? </small>@Html.ActionLink("Se connecter", "Index", "Login")
                 </div>
-                <div class="copyrights text-center">
-                    <p>Design by <a href="https://bootstrapious.com" class="external">Bootstrapious</a></p>
-                    <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-                </div>
+             
             </div>
         </div>
     </div>

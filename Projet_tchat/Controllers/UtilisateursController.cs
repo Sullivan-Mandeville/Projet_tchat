@@ -104,7 +104,7 @@ namespace Projet_tchat.Controllers
             User user = bdd.User.Find(Session["ID"]);
             bdd.User.Remove(user);
             bdd.SaveChanges();
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Deco","Login");
         }
 
 

@@ -12,6 +12,10 @@
 </head>
 
 
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
 <!-- Bootstrap CSS-->
 <link rel="stylesheet" href="~/FrontEnd/vendor/bootstrap/css/bootstrap.min.css">
 <!-- Font Awesome CSS-->
@@ -51,7 +55,7 @@
             <div class="sidenav-header d-flex align-items-center justify-content-center">
                 <!-- User Info-->
                 <div class="sidenav-header-inner text-center">
-                    <img src="~/FrontEnd/img/avatar-7.jpg" alt="person" class="img-fluid rounded-circle">
+                  
 
                     <h2 class="h5">@Session["Nom"] @Session["Prenom"] </h2>
                 </div>
@@ -62,13 +66,18 @@
             <div class="main-menu">
                 <h5 class="sidenav-heading">Main</h5>
                 <ul id="side-main-menu" class="side-menu list-unstyled">
-                    <li> <a href="@Url.Action("Index", "Home")"><i class="icon-home"></i> Acceuil</a></li>
-                    <li> <a href="@Url.Action("Index", "Contact")"><i class="icon-mail"></i>Message </a></li>
-                    <li> <a href="@Url.Action("Index", "Categories")"><i class="icon-grid"></i>Categories </a></li>
+                    
                     @if (Session["Nom"] == null)
                     {
         <li> <a href="@Url.Action("Create", "Utilisateurs")"><i class="icon-user"></i>Sign in </a></li>
-}
+        <li> <a href="@Url.Action("Index", "Login")"><i class="icon-user"></i>Login </a></li>
+        }
+                    else
+                    {
+                    <li> <a href="@Url.Action("Index", "Home")"><i class="icon-home"></i> Acceuil</a></li>
+                    <li> <a href="@Url.Action("Index", "Contact")"><i class="icon-mail"></i>Message </a></li>
+                    <li> <a href="@Url.Action("Index", "Categories")"><i class="icon-grid"></i>Categories </a></li>
+
 
 
                     <li>
@@ -79,27 +88,26 @@
                             <li> <a href="@Url.Action("MesPosts", "Post")"><i class="icon-flask"></i>Mes Post </a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="@Url.Action("Index", "Home")">
-                            <i class="icon-mail"></i>Demo
-                            <div class="badge badge-warning">6 New</div>
-                        </a>
-                    </li>
+                    }
+                 
                 </ul>
             </div>
+
+            @if(Session["Nom"]!=null )
+            {
+
+            
             <div class="admin-menu">
                 <h5 class="sidenav-heading">Compte</h5>
                 <ul id="side-admin-menu" class="side-menu list-unstyled">
                     <li> <a href="@Url.Action("Edit", "Utilisateurs")"><i class="icon-user"></i>Compte</a></li>
                     <li>
-                        <a href="#">
-                            <i class="icon-flask"> </i>Demo
-                            <div class="badge badge-info">Special</div>
-                        </a>
+                     
                     </li>
 
                 </ul>
             </div>
+            }
         </div>
     </nav>
     <div class="page">
@@ -117,8 +125,7 @@
                             <!-- Log out-->
                             @if (Session["Nom"] != null)
                             {
-                <li class="nav-item"><i class="fa fa-sign-out"></i><span class="d-none d-sm-inline-block">@Html.ActionLink("Logout", "Deco", "Login") </span></li>
-}
+                <li class="nav-item"><i class="fa fa-sign-out"></i><span class="d-none d-sm-inline-block">@Html.ActionLink("Logout", "Deco", "Login") </span></li>}
                         </ul>
                     </div>
                 </div>
@@ -150,10 +157,10 @@
 <script src="summernote.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-<script src="~/FrontEnd/lib/MEFPost.js"></script> 
+<script src="~/FrontEnd/lib/MEFPost.js"></script>
 <script src="~/FrontEnd/js/front.js"></script>
 
-       
+
 
 @RenderSection("scripts", required: false)
 </html>
