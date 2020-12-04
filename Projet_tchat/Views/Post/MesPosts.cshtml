@@ -30,10 +30,20 @@
 
 
 
-            <button type="button" class="btn btn-primary btn-xs jaime" id="@item.PostID"><i class="fas fa-thumbs-up"> J'aime </i></button>
+            @*<button type="button" class="btn btn-primary btn-xs jaime" id="@item.PostID"><i class="fas fa-thumbs-up"> J'aime </i></button>*@
             <br />
 
-            @Html.DisplayFor(modelItem => item.Comments)
+            @foreach (var com in item.Comments)
+    {
+<div class="col-sm-12 border border-success rounded">
+    <font face="Andale Mono">
+        @Html.DisplayFor(modelCom => com.nom)       @Html.DisplayFor(modelCom => com.prenom)
+    </font>
+        <div class="col-sm-10">
+            @Html.DisplayFor(modelCom => com.content)
+        </div>
+</div><br/>
+    }
 
 
 

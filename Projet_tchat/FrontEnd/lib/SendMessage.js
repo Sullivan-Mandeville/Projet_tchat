@@ -17,7 +17,9 @@
             data: Data,
             dataType: "text",
             success: function () {
-                location.reload();
+               // location.reload();
+                $('input[type="text"],textarea').val(''); 
+               // document.getElementById("#contenu_message").reset;
 
             },
             error: function (e) {

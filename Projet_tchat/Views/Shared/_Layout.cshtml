@@ -49,10 +49,10 @@
 
 <body>
     <!-- Side Navbar -->
-    <nav class="side-navbar  navbar-fixed-top">
-        <div class="side-navbar-wrapper">
+    <nav class="side-navbar  ">
+        <div class="side-navbar-wrapper ">
             <!-- Sidebar Header    -->
-            <div class="sidenav-header d-flex align-items-center justify-content-center">
+            <div class="sidenav-header d-flex align-items-center justify-content-center ">
                 <!-- User Info-->
                 <div class="sidenav-header-inner text-center">
                   
@@ -100,10 +100,8 @@
             <div class="admin-menu">
                 <h5 class="sidenav-heading">Compte</h5>
                 <ul id="side-admin-menu" class="side-menu list-unstyled">
-                    <li> <a href="@Url.Action("Edit", "Utilisateurs")"><i class="icon-user"></i>Compte</a></li>
-                    <li>
-                     
-                    </li>
+                    <li> <a href="@Url.Action("Edit", "Utilisateurs")"><i class="icon-user"></i>Compte</a></li>     
+                    <li> <a href="@Url.Action("Deco", "Login")"><i class="fa fa-sign-out"></i>Logout</a></li>
 
                 </ul>
             </div>
@@ -113,24 +111,24 @@
     <div class="page">
         <!-- navbar-->
         <header class="header">
-            <nav class="navbar">
-                <div class="container-fluid">
+            <nav class="navbar"id="barre">
+                <div class="container-fluid ">
                     <div class="navbar-holder d-flex align-items-center justify-content-between">
                         <div class="navbar-header">
                             <a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="@Url.Action("Index", "Home")" class="navbar-brand">
                                 <div class="brand-text d-none d-md-inline-block"><strong class="text-primary">Talks</strong></div>
                             </a>
                         </div>
-                        <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                            <!-- Log out-->
-                            @if (Session["Nom"] != null)
-                            {
-                <li class="nav-item"><i class="fa fa-sign-out"></i><span class="d-none d-sm-inline-block">@Html.ActionLink("Logout", "Deco", "Login") </span></li>}
-                        </ul>
+                      
                     </div>
                 </div>
-            </nav>
+            </nav><br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         </header>
+        
         @RenderBody()
 
     </div>
@@ -153,11 +151,11 @@
 <script src="~/FrontEnd/lib/SendMessage.js"></script>
 <script src="~/FrontEnd/lib/fnc_jaime.js"></script>
 <script src="~/FrontEnd/lib/Commentaire.js"></script>
-<script src="~/FrontEnd/lib/Refresh.js"></script>
-<script src="summernote.js"></script>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-<script src="~/FrontEnd/lib/MEFPost.js"></script>
+
 <script src="~/FrontEnd/js/front.js"></script>
 
 

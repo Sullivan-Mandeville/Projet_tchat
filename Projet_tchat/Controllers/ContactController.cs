@@ -46,12 +46,33 @@ namespace Projet_tchat.Controllers
                Session["ID_send"] = id;
             List<MessageDTO> liste = bdd.message((int)Session["ID"], id);
 
-            return View(liste);
+            return View();
             }
 
 
             
         }
+
+        public JsonResult MessagesByID(int id)
+        {
+            if (Session["Nom"] == null)
+            {
+                RedirectToAction("Index", "Login");
+                return null;
+
+            }
+            else
+            {
+                Session["ID_send"] = id;
+                List<MessageDTO> liste = bdd.message((int)Session["ID"], id);
+
+                return Json(liste);
+            }
+
+
+
+        }
+
 
         [HttpPost]
       

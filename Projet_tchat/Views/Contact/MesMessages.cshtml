@@ -4,52 +4,14 @@
 }
 <h2>MesMessages</h2>
 <div class="container">
-    <div id="divi">
-        <div id="message">
+   
+            <div id="message">
 
 
 
-            @foreach (var item in Model)
-            {
-                if ((int)Session["ID"] == item.id_sender)
-                {
-                    <br />
-                    <div id="envoyer">
-                        @Html.DisplayFor(modelItem => item.nom)
 
-                        @Html.DisplayFor(modelItem => item.prenom)
-
-
-                    </div><br />
-
-                    <div id="envoyer" class="alert alert-primary col-lg-5">
-
-                        @Html.DisplayFor(modelItem => item.content)
-
-                    </div> <br /><br /><br />
-
-                }
-
-                else
-                {
-                    <br />
-                    <div id="reception">
-                        @Html.DisplayFor(modelItem => item.nom)
-
-                        @Html.DisplayFor(modelItem => item.prenom)
-                    </div><br />
-                    <div id="reception" class="alert alert-danger col-lg-5">
-                        @Html.DisplayFor(modelItem => item.content)
-
-
-                    </div><br /><br /><br />
-
-                }
-
-            }
-
-        </div>
-    </div>
+            </div>
+       
 
 
     <br />
@@ -60,18 +22,71 @@
 
         </div>
         <div class="col">
-            <input type="submit" value="Envoyer" class="btn btn-primary mb-2" id="send"/> 
+            <input type="submit" value="Envoyer" class="btn btn-primary mb-2" id="send" />
         </div>
 
     </div>
 
 </div>
 
-
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 
-   
+    $(document).ready(function () {
+        //var hdernierexecution = Date.now();
+
+
+           setInterval(function () {
+
+                var Data = {
+
+                    id : @Session["ID_Send"]
+
+
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Contact/MessagesByID",
+                    data: Data,
+                    dataType: "json",
+                    success: function (data) {
+                        let ms = document.getElementById('message');
+                        ms.innerHTML = "";
+                      
+                        
+                        
+                        data.forEach(function (message) {
+
+
+                            if (@Session["ID"] == message.id_sender) {
+
+                                ms.innerHTML += ' <br /> <div class="envoyer">' + message.nom + message.prenom + '</div><br /> <div class="alert alert-primary col-lg-5 envoyer">' + message.content + '</div> <br /><br /><br />'
+
+                            }
+
+                            else {
+                                ms.innerHTML += ' <br /> <div class="reception">' + message.nom + message.prenom + '</div><br /> <div class="alert alert-danger col-lg-5 reception">' + message.content + '</div> <br /><br /><br />'
+                            }
+
+                        });
+                        },
+
+                    error: function (e) {
+                        console.log(e);
+                        alert("Erreur")
+                    }
+
+                });
+
+
+           }, 1000);
+
+
+
+
+
+    });
 
 </script>
 

@@ -16,7 +16,7 @@
     
 }
 
-#envoyer {
+.envoyer {
     float: right;
     height: auto;
     margin: auto;
@@ -24,7 +24,7 @@
    
 }
 
-#reception {
+.reception {
     float: left;
     height: auto;
     margin: auto;
@@ -52,4 +52,16 @@
 
 #env{
     align-content : center ;
+}
+#barre {
+    position: fixed;
+    width : 100%;
+   
+    z-index: 20;
+
+
+}
+#comment {
+    border-width: 1px;
+    border-style: solid;
 }

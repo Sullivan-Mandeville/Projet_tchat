@@ -9,8 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using Tchat.Core.DTO;
 using Tchat.Core.Models;
-using Tchat.Infrastructure.dal;
-using Tchat.Infrastructure.DAL;
+using Tchat.Infrastructure.dal;using Tchat.Infrastructure.DAL;
 
 namespace Projet_tchat.Controllers
 {
@@ -88,7 +87,7 @@ namespace Projet_tchat.Controllers
 
                     All_Post_Comment.Add(temp);
                 }
-
+                System.Diagnostics.Debug.WriteLine("ID USER" +LesCommentaires);
                 return View(All_Post_Comment);
             }
 
@@ -179,9 +178,9 @@ namespace Projet_tchat.Controllers
         {
 
             int i = (int)Session["ID"];
-            System.Diagnostics.Debug.WriteLine("ID USER" +i);
+           // System.Diagnostics.Debug.WriteLine("ID USER" +i);
             int id_post = (int)p.postID;
-            System.Diagnostics.Debug.WriteLine("ID POST"+id_post);
+          //  System.Diagnostics.Debug.WriteLine("ID POST"+id_post);
 
             Comment c = new Comment { postID = id_post, userID = i, content = p.content };
             bdd.Comment.Add(c);
