@@ -18,7 +18,18 @@ namespace Projet_tchat.Controllers
         // GET: Categories
         public ActionResult Index()
         {
-            return View(db.Category.ToList());
+            if (Session["ID"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                if((int)Session["ID"]==1)
+                {
+                    return View(db.Category.ToList());
+                }
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         // GET: Categories/Details/5
@@ -28,6 +39,7 @@ namespace Projet_tchat.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Category category = db.Category.Find(id);
             if (category == null)
             {
@@ -38,8 +50,18 @@ namespace Projet_tchat.Controllers
 
         // GET: Categories/Create
         public ActionResult Create()
-        {
-            return View();
+        {  if (Session["ID"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                if ((int)Session["ID"] == 1)
+                {
+                    return View();
+                }
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         // POST: Categories/Create
@@ -49,29 +71,42 @@ namespace Projet_tchat.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "categoryID,category_title")] Category category)
         {
-            if (ModelState.IsValid)
-            {
-                db.Category.Add(category);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(category);
+          
+                    if (ModelState.IsValid)
+                    {
+                        db.Category.Add(category);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                    return View(category);
+      
         }
 
         // GET: Categories/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["ID"] == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index", "Login");
             }
-            Category category = db.Category.Find(id);
-            if (category == null)
+            else
             {
-                return HttpNotFound();
+                if((int)Session["ID"]==1)
+                {
+                        if (id == null)
+                             {
+                                   return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                              }
+                               Category category = db.Category.Find(id);
+                           if (category == null)
+                           {
+                               return HttpNotFound();
+                            }
+                            return View(category);
+                }
+                return RedirectToAction("Index", "Home");
+
             }
-            return View(category);
         }
 
         // POST: Categories/Edit/5
@@ -93,16 +128,27 @@ namespace Projet_tchat.Controllers
         // GET: Categories/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["ID"] == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index", "Login");
             }
-            Category category = db.Category.Find(id);
-            if (category == null)
+            else
             {
-                return HttpNotFound();
+                if ((int)Session["ID"] == 1)
+                {
+                    if (id == null)
+                    {
+                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    }
+                    Category category = db.Category.Find(id);
+                    if (category == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    return View(category);
+                }
+                return RedirectToAction("Index", "Home");
             }
-            return View(category);
         }
 
         // POST: Categories/Delete/5

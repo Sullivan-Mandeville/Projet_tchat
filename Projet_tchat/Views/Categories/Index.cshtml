@@ -7,12 +7,12 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nouvelle catégorie", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.category_title)
+            Titre de la catégorie
         </th>
         <th></th>
     </tr>
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.category_title)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.categoryID }) |
+            @Html.ActionLink("Modifier", "Edit", new { id=item.categoryID }) |
             @Html.ActionLink("Details", "Details", new { id=item.categoryID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.categoryID })
+            @Html.ActionLink("Supprimer", "Delete", new { id=item.categoryID })
         </td>
     </tr>
 }
