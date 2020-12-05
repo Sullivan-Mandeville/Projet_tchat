@@ -24,7 +24,7 @@ namespace Projet_tchat.Controllers
             }
             else
             {
-                if((int)Session["ID"]==1)
+                if((int)Session["ID"]==5)
                 {
                     return View(db.Category.ToList());
                 }
@@ -56,7 +56,7 @@ namespace Projet_tchat.Controllers
             }
             else
             {
-                if ((int)Session["ID"] == 1)
+                if ((int)Session["ID"] == 5)
                 {
                     return View();
                 }
@@ -91,7 +91,7 @@ namespace Projet_tchat.Controllers
             }
             else
             {
-                if((int)Session["ID"]==1)
+                if((int)Session["ID"]==5)
                 {
                         if (id == null)
                              {
@@ -134,7 +134,7 @@ namespace Projet_tchat.Controllers
             }
             else
             {
-                if ((int)Session["ID"] == 1)
+                if ((int)Session["ID"] == 5)
                 {
                     if (id == null)
                     {

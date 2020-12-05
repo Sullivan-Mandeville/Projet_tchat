@@ -670,6 +670,9 @@
     <Content Include="FrontEnd\vendor\font-awesome\fonts\FontAwesome.otf" />
     <Content Include="FrontEnd\vendor\jquery.cookie\component.json" />
     <Content Include="FrontEnd\vendor\jquery.cookie\cookie.jquery.json" />
+    <Content Include="profile\chattalks.PublishSettings" />
+    <None Include="Properties\PublishProfiles\chattalks - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\chattalks - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
