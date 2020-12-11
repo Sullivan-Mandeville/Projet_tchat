@@ -99,6 +99,7 @@ namespace Projet_tchat.Controllers
         //MODIFICATION
         public ActionResult Edit(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -116,7 +117,9 @@ namespace Projet_tchat.Controllers
         [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "postID,userID,categoryID,content,date_create,modification_date,nb_like")] Post post)
         {
-            if (ModelState.IsValid)
+            if(post.userID == (int)Session["ID"])
+            {
+                if (ModelState.IsValid)
             {
                 bdd.Entry(post).State = EntityState.Modified;
                 bdd.SaveChanges();
@@ -124,6 +127,13 @@ namespace Projet_tchat.Controllers
             }
             ViewBag.categoryID = new SelectList(bdd.Category, "categoryID", "category_title", post.categoryID);
             return View(post);
+
+            }
+            else
+            {
+                return RedirectToAction("MesPosts");
+            }
+           
         }
 
         // DELETE

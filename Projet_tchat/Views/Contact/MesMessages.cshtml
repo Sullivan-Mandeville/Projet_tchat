@@ -61,12 +61,12 @@
 
                             if (@Session["ID"] == message.id_sender) {
 
-                                ms.innerHTML += ' <br /> <div class="envoyer">' + message.nom + message.prenom + '</div><br /> <div class="alert alert-primary col-lg-5 envoyer">' + message.content + '</div> <br /><br /><br />'
+                                ms.innerHTML += ' <br /> <div class="envoyer">' + message.nom +" "+ message.prenom + '</div><br /> <div class="alert alert-primary col-lg-5 envoyer">' + message.content + '</div> <br /><br /><br />'
 
                             }
 
                             else {
-                                ms.innerHTML += ' <br /> <div class="reception">' + message.nom + message.prenom + '</div><br /> <div class="alert alert-danger col-lg-5 reception">' + message.content + '</div> <br /><br /><br />'
+                                ms.innerHTML += ' <br /> <div class="reception">' + message.nom +" " + message.prenom + '</div><br /> <div class="alert alert-danger col-lg-5 reception">' + message.content + '</div> <br /><br /><br />'
                             }
 
                         });

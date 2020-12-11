@@ -10,6 +10,9 @@
             content: content
          
         };
+        if (content != null && content != " ") {
+
+      
         console.log(Data);
         $.ajax({
             type: "POST",
@@ -27,7 +30,7 @@
             }
 
         });
-      
+        }
 
     });
 

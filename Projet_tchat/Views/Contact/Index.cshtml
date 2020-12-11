@@ -18,7 +18,7 @@
             <div class="col-sm-12">
                 @Html.DisplayFor(modelItem => item.prenom)
                 @Html.DisplayFor(modelItem => item.nom)
-                @Html.DisplayFor(modelItem => item.mail)
+    
                 <div id="droite">  @Html.ActionLink("Envoyer message", "MesMessages", new { id = item.UserID }) </div>
 
             </div>
