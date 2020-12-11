@@ -18,6 +18,7 @@ namespace Tchat.Infrastructure.dal
         List<CommentDTO> ListeCommentaire(List<int> PostID);
         List<PostDTO> postByUserID(int id);
         List<MessageDTO> message(int UserID, int id_user);
+        MONPOSTIDDTO ididepost(int postid);
 
     //    void messageprivée(int id_sender, int id_recepient, String content);
 

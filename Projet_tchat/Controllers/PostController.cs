@@ -97,10 +97,13 @@ namespace Projet_tchat.Controllers
         }
 
         //MODIFICATION
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            
-            if (id == null)
+            MONPOSTIDDTO unpost = db.ididepost(id);
+
+            if(unpost.userID == (int)Session["ID"])
+            {
+                if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -111,28 +114,33 @@ namespace Projet_tchat.Controllers
             }
             ViewBag.categoryID = new SelectList(bdd.Category, "categoryID", "category_title", post.categoryID);
             return View(post);
+
+
+            }
+            else
+            {
+                return View("Index");
+            }
+
+
+           
+
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "postID,userID,categoryID,content,date_create,modification_date,nb_like")] Post post)
         {
-            if(post.userID == (int)Session["ID"])
-            {
-                if (ModelState.IsValid)
-            {
-                bdd.Entry(post).State = EntityState.Modified;
-                bdd.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.categoryID = new SelectList(bdd.Category, "categoryID", "category_title", post.categoryID);
-            return View(post);
+              if (ModelState.IsValid)
+                     {
+                           bdd.Entry(post).State = EntityState.Modified;
+                           bdd.SaveChanges();
+                           return RedirectToAction("Index");
+                     }
+                        ViewBag.categoryID = new SelectList(bdd.Category, "categoryID", "category_title", post.categoryID);
+                           return View(post);
 
-            }
-            else
-            {
-                return RedirectToAction("MesPosts");
-            }
+          
            
         }
 

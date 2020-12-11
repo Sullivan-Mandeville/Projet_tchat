@@ -32,6 +32,12 @@ namespace Tchat.Infrastructure.dal
 
         }
 
+        public MONPOSTIDDTO ididepost(int postid)
+        {
+            var logg = (from r in db.Post where r.postID == postid select new MONPOSTIDDTO { userID = r.userID, postID = r.postID }).FirstOrDefault();
+            return logg;
+        }
+
         /*public PostDTO like(int id_post, int id_user)
         {
             var logg = (from p in db.Post where p.postID = id_post && p.userID =id_user )

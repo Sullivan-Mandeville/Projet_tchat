@@ -60,7 +60,7 @@
                     <h2 class="h5">@Session["Nom"] @Session["Prenom"] </h2>
                 </div>
                 <!-- Small Brand information, appears on minimized sidebar-->
-                <div class="sidenav-header-logo"><a href="" @Url.Action("Index", "Home") "" class="brand-small text-center"> <strong>@Session["CarPrenom"]</strong><strong class="text-primary">@Session["CarNom"]</strong></a></div>
+                <div class="sidenav-header-logo"><a href="@Url.Action("Index", "Home")" class="brand-small text-center"> <strong>@Session["CarPrenom"]</strong><strong class="text-primary">@Session["CarNom"]</strong></a></div>
             </div>
             <!-- Sidebar Navigation Menus-->
             <div class="main-menu">
@@ -69,8 +69,8 @@
                     
                     @if (Session["Nom"] == null)
                     {
-        <li> <a href="@Url.Action("Create", "Utilisateurs")"><i class="icon-user"></i>Sign in </a></li>
-        <li> <a href="@Url.Action("Index", "Login")"><i class="icon-user"></i>Login </a></li>
+        <li> <a href="@Url.Action("Create", "Utilisateurs")"><i class="icon-user"></i>S'inscrire</a></li>
+        <li> <a href="@Url.Action("Index", "Login")"><i class="icon-user"></i>Se connecter </a></li>
         }
                     else
                     {
@@ -106,7 +106,7 @@
                 <h5 class="sidenav-heading">Compte</h5>
                 <ul id="side-admin-menu" class="side-menu list-unstyled">
                     <li> <a href="@Url.Action("Edit", "Utilisateurs")"><i class="icon-user"></i>Compte</a></li>     
-                    <li> <a href="@Url.Action("Deco", "Login")"><i class="fa fa-sign-out"></i>Logout</a></li>
+                    <li> <a href="@Url.Action("Deco", "Login")"><i class="fa fa-sign-out"></i>Se déconnecter</a></li>
 
                 </ul>
             </div>

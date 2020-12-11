@@ -58,6 +58,7 @@
     <Compile Include="DTO\Liste_Id_UserDTO.cs" />
     <Compile Include="DTO\LoginDTO.cs" />
     <Compile Include="DTO\MessageDTO.cs" />
+    <Compile Include="DTO\MONPOSTIDDTO.cs" />
     <Compile Include="DTO\PostDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Interface\IRepository.cs" />
