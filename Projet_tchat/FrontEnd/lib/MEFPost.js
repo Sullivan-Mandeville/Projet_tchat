@@ -30,7 +30,7 @@
             })
         },
         error: function (e) {
-            alert("Error:Unable to load data from server");
+           // alert("Error:Unable to load data from server");
         }
          });
 

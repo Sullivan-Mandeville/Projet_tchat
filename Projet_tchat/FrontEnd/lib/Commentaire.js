@@ -26,7 +26,7 @@
             },
             error: function (e) {
                 console.log(e);
-                alert("Erreur")
+              //  alert("Erreur")
             }
 
         });

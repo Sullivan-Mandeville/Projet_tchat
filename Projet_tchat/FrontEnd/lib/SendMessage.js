@@ -2,6 +2,7 @@
 
     $('#send').click(function (e) {
         e.preventDefault();
+      
         //  alert($("#contenu_message textarea").val());
         var content = $("#contenu_message textarea").val();
  
@@ -20,9 +21,14 @@
             data: Data,
             dataType: "text",
             success: function () {
-               // location.reload();
-                $('input[type="text"],textarea').val(''); 
-               // document.getElementById("#contenu_message").reset;
+                // location.reload();
+                $('input[type="text"],textarea').val("");
+                
+              
+               
+            
+               
+           
 
             },
             error: function (e) {
