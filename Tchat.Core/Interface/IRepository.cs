@@ -19,6 +19,7 @@ namespace Tchat.Infrastructure.dal
         List<PostDTO> postByUserID(int id);
         List<MessageDTO> message(int UserID, int id_user);
         MONPOSTIDDTO ididepost(int postid);
+        UserDTO utilisateurmessage(int id);
 
     //    void messageprivée(int id_sender, int id_recepient, String content);
 

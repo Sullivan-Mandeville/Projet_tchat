@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 
@@ -47,7 +47,7 @@
 
 
 
-<body>
+<body >
     <!-- Side Navbar -->
     <nav class="side-navbar  ">
         <div class="side-navbar-wrapper ">
@@ -55,7 +55,7 @@
             <div class="sidenav-header d-flex align-items-center justify-content-center ">
                 <!-- User Info-->
                 <div class="sidenav-header-inner text-center">
-                  
+
 
                     <h2 class="h5">@Session["Nom"] @Session["Prenom"] </h2>
                 </div>
@@ -66,57 +66,54 @@
             <div class="main-menu">
                 <h5 class="sidenav-heading">Main</h5>
                 <ul id="side-main-menu" class="side-menu list-unstyled">
-                    
+
                     @if (Session["Nom"] == null)
                     {
         <li> <a href="@Url.Action("Create", "Utilisateurs")"><i class="icon-user"></i>S'inscrire</a></li>
-        <li> <a href="@Url.Action("Index", "Login")"><i class="icon-user"></i>Se connecter </a></li>
-        }
+                        <li> <a href="@Url.Action("Index", "Login")"><i class="icon-user"></i>Se connecter </a></li>
+ }
                     else
                     {
-                    <li> <a href="@Url.Action("Index", "Home")"><i class="icon-home"></i> Accueil</a></li>
-                    <li> <a href="@Url.Action("Index", "Contact")"><i class="icon-mail"></i>Message </a></li>
-
-                    if(Session["Nom"].Equals("Mandeville"))
-                    {
-                                 <li> <a href="@Url.Action("Index", "Categories")"><i class="icon-grid"></i>Categories </a></li>
-                    }
-                    
+        <li> <a href="@Url.Action("Index", "Home")"><i class="icon-home"></i> Accueil</a></li>
+                        <li> <a href="@Url.Action("Index", "Contact")"><i class="icon-mail"></i>Message </a></li>
+ if (Session["Nom"].Equals("Mandeville"))
+                        {
+        <li> <a href="@Url.Action("Index", "Categories")"><i class="icon-grid"></i>Categories </a></li> }
 
 
 
-                    <li>
-                        <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Posts </a>
-                        <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                            <li> <a href="@Url.Action("Create", "Post")"><i class="icon-flask"></i>Créer </a></li>
-                            <li> <a href="@Url.Action("Index", "Post")"><i class="icon-flask"></i>Post </a></li>
-                            <li> <a href="@Url.Action("MesPosts", "Post")"><i class="icon-flask"></i>Mes Post </a></li>
-                        </ul>
-                    </li>
-                    }
-                 
+
+        <li>
+            <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Posts </a>
+            <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                <li> <a href="@Url.Action("Create", "Post")"><i class="icon-flask"></i>Créer </a></li>
+                <li> <a href="@Url.Action("Index", "Post")"><i class="icon-flask"></i>Post </a></li>
+                <li> <a href="@Url.Action("MesPosts", "Post")"><i class="icon-flask"></i>Mes Post </a></li>
+            </ul>
+        </li>
+}
+
                 </ul>
             </div>
 
-            @if(Session["Nom"]!=null )
+            @if (Session["Nom"] != null)
             {
 
-            
-            <div class="admin-menu">
-                <h5 class="sidenav-heading">Compte</h5>
-                <ul id="side-admin-menu" class="side-menu list-unstyled">
-                    <li> <a href="@Url.Action("Edit", "Utilisateurs")"><i class="icon-user"></i>Compte</a></li>     
-                    <li> <a href="@Url.Action("Deco", "Login")"><i class="fa fa-sign-out"></i>Se déconnecter</a></li>
 
-                </ul>
-            </div>
-            }
+<div class="admin-menu">
+    <h5 class="sidenav-heading">Compte</h5>
+    <ul id="side-admin-menu" class="side-menu list-unstyled">
+        <li> <a href="@Url.Action("Edit", "Utilisateurs")"><i class="icon-user"></i>Compte</a></li>
+        <li> <a href="@Url.Action("Deco", "Login")"><i class="fa fa-sign-out"></i>Se déconnecter</a></li>
+
+    </ul>
+</div>      }
         </div>
     </nav>
-    <div class="page">
+    <div class="page" id="lebody">
         <!-- navbar-->
         <header class="header">
-            <nav class="navbar"id="barre">
+            <nav class="navbar" id="barre">
                 <div class="container-fluid ">
                     <div class="navbar-holder d-flex align-items-center justify-content-between">
                         <div class="navbar-header">
@@ -124,16 +121,16 @@
                                 <div class="brand-text d-none d-md-inline-block"><strong class="text-primary">Talks</strong></div>
                             </a>
                         </div>
-                      
+
                     </div>
                 </div>
-            </nav><br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+            </nav><br />
+            <br />
+            <br />
+            <br />
+            <br />
         </header>
-        
+
         @RenderBody()
 
     </div>
@@ -143,7 +140,9 @@
 </body>
 
 <!-- JavaScript files-->
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="~/FrontEnd/vendor/jquery/jquery.min.js"></script>
 <script src="~/FrontEnd/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="~/FrontEnd/js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
@@ -157,13 +156,17 @@
 <script src="~/FrontEnd/lib/fnc_jaime.js"></script>
 <script src="~/FrontEnd/lib/Commentaire.js"></script>
 
+
 <script src="summernote.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
 <script src="~/FrontEnd/lib/MEFPost.js"></script>
 <script src="~/FrontEnd/js/front.js"></script>
 
 
+
+<!-- include summernote css/js -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 @RenderSection("scripts", required: false)
 </html>

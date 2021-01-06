@@ -80,6 +80,15 @@ namespace Tchat.Infrastructure.dal
             return liste_message.ToList();
         }
 
+        public UserDTO utilisateurmessage(int id)
+        {
+            var logg = (from r in db.User where
+                         r.userID == id 
+                        select new UserDTO { prenom = r.firstname, nom=r.name, mail=r.email,UserID=r.userID }).FirstOrDefault();
+            return logg;
+
+        }
+
 
     }
 }

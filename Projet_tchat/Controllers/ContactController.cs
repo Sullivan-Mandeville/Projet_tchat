@@ -45,6 +45,10 @@ namespace Projet_tchat.Controllers
             {
                Session["ID_send"] = id;
             List<MessageDTO> liste = bdd.message((int)Session["ID"], id);
+                // RECUPERER LE NOM + PRENOM POUR L'AFFICHER DANS "MES MESSAGES"
+                UserDTO us = bdd.utilisateurmessage(id);
+                Session["nom_message"] = us.nom;
+                Session["prenom_message"] = us.prenom;
 
             return View();
             }

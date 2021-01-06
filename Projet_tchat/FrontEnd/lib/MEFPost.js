@@ -2,9 +2,10 @@
 
     $('#content_post').summernote({
         placeholder: 'Ecrire le post',
-        height: 150,
+        height: 500,
         minHeight: null,
         maxHeight: null,
+       
 
        
 
@@ -26,6 +27,7 @@
                 $(this).summernote('code','');
                 $(this).summernote('pasteHTML', result[j].content);
                 $(this).summernote('destroy');
+                document.createElement('br');
                 j++
             })
         },

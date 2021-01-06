@@ -1,9 +1,6 @@
 /* your styles go here */
 #div_mesposts {
-    border-width: 1px;
-    border-style: solid;
-    border-color: black;
-    background-color: #FFFAFA;
+    background-color: #F8FAFC;
 }
 
 #modif_post{
@@ -33,8 +30,7 @@
 }
 
 #personne {
-    border-width: 1px;
-    border-style: solid;
+    background-color: #EDF0F6;
 }
 
 #droite{
@@ -65,3 +61,24 @@
     border-width: 1px;
     border-style: solid;
 }
+
+#commentaire {
+    background-color: #EDF0F6;
+    border-radius: 10px;
+}
+
+#message {
+   overflow-y :scroll;
+   max-height : 640px;
+   width : 100%;
+   
+}
+
+#lebody {
+    background-color: #e1e1e2;
+}
+
+#unedivdepost {
+    border-bottom: 1px solid #8EBAD0;
+}
+
