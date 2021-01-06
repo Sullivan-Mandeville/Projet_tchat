@@ -18,7 +18,7 @@
         <font face="Andale Mono">  @Html.DisplayFor(modelItem => item.nom) @Html.DisplayFor(modelItem => item.prenom) </font> <font face="Andale Mono" size="2" color="grey">@Html.DisplayFor(modelItem => item.date_create)</font>
         <a href="@Url.Action("Index", "Categories")">
             <div id="modif_post"><a href="@Url.Action("Edit", "Post", new { id=item.PostID })"><i class="fas fa-pencil-square-o"></i></a></div>
-            <div class="col-sm-12 USPOST">
+            <div class="col-sm-12 USPOST"id="unedivdepost">
 
 
 
@@ -35,7 +35,7 @@
 
             @foreach (var com in item.Comments)
     {
-<div class="col-sm-12 border border-success rounded">
+<div class="col-sm-12"id="commentaire">
     <font face="Andale Mono">
         @Html.DisplayFor(modelCom => com.nom)       @Html.DisplayFor(modelCom => com.prenom)
     </font>
