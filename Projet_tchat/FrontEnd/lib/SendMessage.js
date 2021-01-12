@@ -2,6 +2,7 @@
 
     $('#send').click(function (e) {
         e.preventDefault();
+        let btn = document.getElementById('send');
       
         //  alert($("#contenu_message textarea").val());
         var content = $("#contenu_message textarea").val();
@@ -23,7 +24,7 @@
             success: function () {
                 // location.reload();
                 $('input[type="text"],textarea').val("");
-                
+                $content.val("");
               
                
             

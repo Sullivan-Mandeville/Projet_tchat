@@ -39,7 +39,7 @@
 
             @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", @id = "password", @type = "password" } })
         </div>
-        <div ><button type="button" class="btn btn-light" onclick="togglePwd('password');"><i class="far fa-eye"></i></button></div>
+        <div><button type="button" id="pwd" class="btn btn-light" onclick="togglePwd('password');" ><i class="far fa-eye"></i></button></div>
 
         @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
 

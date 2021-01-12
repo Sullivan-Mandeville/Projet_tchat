@@ -6,7 +6,7 @@
 <h2> @Session["nom_message"] @Session["prenom_message"]</h2>
 
 <div class="container">
-    <div class="d-md-flex">
+    <div class="d-md-flex"id="parent">
 
         <div id="message">
 
@@ -52,6 +52,14 @@
     }
 </script>
 
+<script type="text/javascript">
+function scrollbas()
+{
+  var wscrolldiv =  document.getElementById('message');
+  wscrolldiv.scrollTop = wscrolldiv.scrollHeight;
+}
+</script>
+
 <script>
 
     $(document).ready(function () {
@@ -75,10 +83,11 @@
                     success: function (data) {
                         let ms = document.getElementById('message');
                         ms.innerHTML = "";
+                        var i = 0;
+                        
 
 
-
-
+                        
                         data.forEach(function (message) {
 
                             if (message.content != null) {
@@ -90,24 +99,33 @@
                              if (@Session["ID"] == message.id_sender) {
 
                                  ms.innerHTML += ' <br /> <div class="envoyer">' + message.nom + " " + message.prenom + '</div><br /> <div class="alert alert-primary col-lg-5 envoyer">' + message.content + '</div> <br /><br /><br />'
-                                
+
                             }
 
                             else {
                                 ms.innerHTML += ' <br /> <div class="reception">' + message.nom +" " + message.prenom + '</div><br /> <div class="alert alert-danger col-lg-5 reception">' + message.content + '</div> <br /><br /><br />'
-                                
-                             }
+
+                                } 
 
                             }
-                            
 
+                            i++;
 
 
                         });
+                       
+                        if (j<i) {
+                            scrollbas();
+                        }
+             
+                        j = i;
+                       
+                        
+
                         },
 
                     error: function (e) {
-                        console.log(e);
+                       
                        // alert("Erreur")
                     }
 

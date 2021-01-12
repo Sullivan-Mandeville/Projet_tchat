@@ -68,10 +68,10 @@
 }
 
 #message {
-   overflow-y :scroll;
-   max-height : 640px;
-   width : 100%;
-   
+    overflow-y: scroll;
+    max-height: 640px;
+    width: 100%;
+ 
 }
 
 #lebody {
@@ -82,3 +82,13 @@
     border-bottom: 1px solid #8EBAD0;
 }
 
+#pwd {
+    position: absolute;
+   
+}
+
+#message::-webkit-scrollbar {
+    /* rend la scrollbar transparente et invisible */
+    width: 0px;
+    background: transparent;
+} 
