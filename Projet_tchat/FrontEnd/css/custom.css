@@ -31,6 +31,7 @@
 
 #personne {
     background-color: #EDF0F6;
+    border-radius: 10px;
 }
 
 #droite{
@@ -69,7 +70,7 @@
 
 #message {
     overflow-y: scroll;
-    max-height: 640px;
+    max-height: 100%;
     width: 100%;
  
 }
@@ -91,4 +92,8 @@
     /* rend la scrollbar transparente et invisible */
     width: 0px;
     background: transparent;
-} 
+}
+
+#parent {
+    height: 600px;
+}

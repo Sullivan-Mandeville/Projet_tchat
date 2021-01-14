@@ -1,45 +1,83 @@
-﻿@model IEnumerable<Tchat.Core.DTO.UserDTO>
+﻿@model IEnumerable<Projet_tchat.Models.ContactVM>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Liste de contact</h2>
 
-<div class="container" id="personne">
+<div class="container">
 
 
 
 
     @foreach (var item in Model)
     {
-        if (item.UserID != (int)Session["ID"])
-        {
-            <div class="col-sm-12">
-                
-                
-                
-            
-    
-                <div >
-                 
-                    <a href="@Url.Action("MesMessages", new { id=item.UserID})" class="text-secondary">
-                       
-                        @Html.DisplayFor(modelItem => item.prenom)
-                        @Html.DisplayFor(modelItem => item.nom)
-                        
-                      
-                    </a>
-                   
-                     
-                </div>
+        <div class="col-sm-12" id="personne">
 
-            </div>
+            @if (item.userID != (int)Session["ID"])
+            {
+
+
+
+                <a href="@Url.Action("MesMessages", new { id=item.userID})" class="text-secondary">
+
+                    @Html.DisplayFor(modelItem => item.prenom)
+                    @Html.DisplayFor(modelItem => item.nom)
+
+
+                </a>
+
+                if (item.message != null)
+                {
+                    if (item.message.id_sender == (int)Session["ID"])
+                    {
+                        <div>
+                            Vous :      @Html.DisplayFor(modelItem => item.message.content)
+
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div>
+                            @Html.DisplayFor(modelItem => item.prenom)  :  @Html.DisplayFor(modelItem => item.message.content)
+                        </div>
+
+                    }
+
+
+                }
+                else
+                {
+                    <div>
+                        Aucun message
+                    </div>
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            }
+
+        </div>
+        if (item.userID != (int)Session["ID"])
+        {
+            <br />
+        }
 
 
         }
-    }
 
 
 
-</div>
+    </div>

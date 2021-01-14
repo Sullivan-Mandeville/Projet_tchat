@@ -144,6 +144,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ContactVM.cs" />
     <Compile Include="Models\MessageModel.cs" />
     <Compile Include="Models\PostVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

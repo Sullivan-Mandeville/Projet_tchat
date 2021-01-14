@@ -46,7 +46,7 @@
 
 
 
-<body >
+<body>
     <!-- Side Navbar -->
     <nav class="side-navbar  ">
         <div class="side-navbar-wrapper ">
@@ -68,29 +68,30 @@
 
                     @if (Session["Nom"] == null)
                     {
-        <li> <a href="@Url.Action("Create", "Utilisateurs")"><i class="icon-user"></i>S'inscrire</a></li>
-                        <li> <a href="@Url.Action("Index", "Login")"><i class="icon-user"></i>Se connecter </a></li>
- }
+                              <li> <a href="@Url.Action("Create", "Utilisateurs")"><i class="icon-user"></i>S'inscrire</a></li>
+                              <li> <a href="@Url.Action("Index", "Login")"><i class="icon-user"></i>Se connecter </a></li>
+                    }
                     else
                     {
-        <li> <a href="@Url.Action("Index", "Home")"><i class="icon-home"></i> Accueil</a></li>
-                        <li> <a href="@Url.Action("Index", "Contact")"><i class="icon-mail"></i>Message </a></li>
- if (Session["Nom"].Equals("Mandeville"))
-                        {
-        <li> <a href="@Url.Action("Index", "Categories")"><i class="icon-grid"></i>Categories </a></li> }
+                              <li> <a href="@Url.Action("Index", "Home")"><i class="icon-home"></i> Accueil</a></li>
+                              <li> <a href="@Url.Action("Index", "Contact")"><i class="icon-mail"></i>Message </a></li>
+                              if (Session["Nom"].Equals("Mandeville"))
+                              {
+                                    <li> <a href="@Url.Action("Index", "Categories")"><i class="icon-grid"></i>Categories </a></li> 
+                              }
 
 
 
 
-        <li>
-            <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Posts </a>
-            <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                <li> <a href="@Url.Action("Create", "Post")"><i class="icon-flask"></i>Créer </a></li>
-                <li> <a href="@Url.Action("Index", "Post")"><i class="icon-flask"></i>Post </a></li>
-                <li> <a href="@Url.Action("MesPosts", "Post")"><i class="icon-flask"></i>Mes Post </a></li>
-            </ul>
-        </li>
-}
+                              <li>
+                                <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Posts </a>
+                                <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                                <li> <a href="@Url.Action("Create", "Post")"><i class="icon-flask"></i>Créer </a></li>
+                                <li> <a href="@Url.Action("Index", "Post")"><i class="icon-flask"></i>Posts </a></li>
+                                <li> <a href="@Url.Action("MesPosts", "Post")"><i class="icon-flask"></i>Mes Posts </a></li>
+                                </ul>
+                              </li>
+                    }
 
                 </ul>
             </div>
@@ -99,14 +100,15 @@
             {
 
 
-<div class="admin-menu">
-    <h5 class="sidenav-heading">Compte</h5>
-    <ul id="side-admin-menu" class="side-menu list-unstyled">
-        <li> <a href="@Url.Action("Edit", "Utilisateurs")"><i class="icon-user"></i>Compte</a></li>
-        <li> <a href="@Url.Action("Deco", "Login")"><i class="fa fa-sign-out"></i>Se déconnecter</a></li>
+                    <div class="admin-menu">
+                    <h5 class="sidenav-heading">Compte</h5>
+                    <ul id="side-admin-menu" class="side-menu list-unstyled">
+                        <li> <a href="@Url.Action("Edit", "Utilisateurs")"><i class="icon-user"></i>Compte</a></li>
+                        <li> <a href="@Url.Action("Deco", "Login")"><i class="fa fa-sign-out"></i>Se déconnecter</a></li>
 
-    </ul>
-</div>      }
+                    </ul>
+                    </div>      
+            }
         </div>
     </nav>
     <div class="page" id="lebody">

@@ -19,6 +19,25 @@ namespace Projet_tchat.Controllers
         // GET: Contact
         public ActionResult Index()
         {
+            List<UserDTO> liste_contact = bdd.liste();
+            List<ContactVM> Contact_message = new List<ContactVM>();
+
+            foreach (var item in liste_contact)
+            {
+                ContactVM temp = new ContactVM();
+                temp.userID = item.UserID;
+                temp.nom = item.nom;
+                temp.prenom = item.prenom;
+                List<MessageDTO> dernier_message = bdd.message((int)Session["ID"], item.UserID);
+             
+                    MessageDTO temporaire = dernier_message.LastOrDefault();
+                    temp.message = temporaire;
+                    System.Diagnostics.Debug.WriteLine("Message : " + temp.message);
+                
+
+                Contact_message.Add(temp);
+            }
+
             if (Session["Nom"] == null)
             {
                 return RedirectToAction("Index", "Login");
@@ -26,9 +45,7 @@ namespace Projet_tchat.Controllers
             }
             else
             {
-                
-            List<UserDTO> liste_contact = bdd.liste();
-            return View(liste_contact);
+                return View(Contact_message);
             }
 
         }
