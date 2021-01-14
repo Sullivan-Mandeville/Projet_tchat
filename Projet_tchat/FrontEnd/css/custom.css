@@ -97,3 +97,10 @@
 #parent {
     height: 600px;
 }
+
+#pwdlog{
+    outline : none;
+}
+#login {
+    text-align : center;
+}
