@@ -31,17 +31,36 @@
                 {
                     if (item.message.id_sender == (int)Session["ID"])
                     {
-                        <div>
-                            Vous :      @Html.DisplayFor(modelItem => item.message.content)
+        <div>
+            Vous :      @Html.DisplayFor(modelItem => item.message.content)
+            @if (item.message.date_message.Minute < 10){
+            <span id="droite">    @Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Hours)<text>:0</text>@Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Minutes) </span>
+            }
+            else
+            {
+            <span id="droite">
+                @Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Hours):@Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Minutes) </span>
+                }
+          
 
-                        </div>
+        </div>
 
                     }
                     else
                     {
-                        <div>
-                            @Html.DisplayFor(modelItem => item.prenom)  :  @Html.DisplayFor(modelItem => item.message.content)
-                        </div>
+        <div>
+            @Html.DisplayFor(modelItem => item.prenom)  :  @Html.DisplayFor(modelItem => item.message.content)
+            @if (item.message.date_message.Minute < 10)
+            {
+                <span id="droite">    @Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Hours)<text>:0</text>@Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Minutes) </span>
+            }
+            else
+            {
+                <span id="droite">
+                    @Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Hours):@Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Minutes)
+                </span>
+            }
+        </div>
 
                     }
 
