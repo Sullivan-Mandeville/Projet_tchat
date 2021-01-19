@@ -31,17 +31,43 @@
                 {
                     if (item.message.id_sender == (int)Session["ID"])
                     {
+
         <div>
+
             Vous :      @Html.DisplayFor(modelItem => item.message.content)
-            @if (item.message.date_message.Minute < 10){
-            <span id="droite">    @Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Hours)<text>:0</text>@Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Minutes) </span>
+
+            @if (item.message.date_message < DateTime.Today)
+            {
+
+
+                if (item.message.date_message.Minute < 10)
+                {
+                      <span id="droite"> &nbsp;    @Html.DisplayFor(modelItem => item.message.date_message.Hour)<text>:0</text>@Html.DisplayFor(modelItem => item.message.date_message.Minute) </span>
+                }
+                else
+                {
+                    <span id="droite">
+                         &nbsp;   @Html.DisplayFor(modelItem => item.message.date_message.Hour):@Html.DisplayFor(modelItem => item.message.date_message.Minute)
+                    </span>
+                }
+                    <span id="droite">    @Html.DisplayFor(modelItem => item.message.date_message.Day)/@Html.DisplayFor(modelItem => item.message.date_message.Month)/@Html.DisplayFor(modelItem => item.message.date_message.Year)</span>
+
             }
             else
             {
-            <span id="droite">
-                @Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Hours):@Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Minutes) </span>
+                if (item.message.date_message.Minute < 10)
+                {
+                    <span id="droite">    @Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Hours)<text>:0</text>@Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Minutes) </span>
                 }
-          
+                else
+                {
+                    <span id="droite">
+                        @Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Hours):@Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Minutes)
+                    </span>
+                }
+            }
+
+
 
         </div>
 
@@ -50,15 +76,35 @@
                     {
         <div>
             @Html.DisplayFor(modelItem => item.prenom)  :  @Html.DisplayFor(modelItem => item.message.content)
-            @if (item.message.date_message.Minute < 10)
+            @if (item.message.date_message < DateTime.Today)
             {
-                <span id="droite">    @Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Hours)<text>:0</text>@Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Minutes) </span>
+
+
+                if (item.message.date_message.Minute < 10)
+                {
+                    <span id="droite"> &nbsp;    @Html.DisplayFor(modelItem => item.message.date_message.Hour)<text>:0</text>@Html.DisplayFor(modelItem => item.message.date_message.Minute) </span>
+                }
+                else
+                {
+                    <span id="droite">
+                        &nbsp;   @Html.DisplayFor(modelItem => item.message.date_message.Hour):@Html.DisplayFor(modelItem => item.message.date_message.Minute)
+                    </span>
+                }
+                <span id="droite">    @Html.DisplayFor(modelItem => item.message.date_message.Day)/@Html.DisplayFor(modelItem => item.message.date_message.Month)/@Html.DisplayFor(modelItem => item.message.date_message.Year)</span>
+
             }
             else
             {
-                <span id="droite">
-                    @Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Hours):@Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Minutes)
-                </span>
+                if (item.message.date_message.Minute < 10)
+                {
+                    <span id="droite">    @Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Hours)<text>:0</text>@Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Minutes) </span>
+                }
+                else
+                {
+                    <span id="droite">
+                        @Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Hours):@Html.DisplayFor(modelItem => item.message.date_message.TimeOfDay.Minutes)
+                    </span>
+                }
             }
         </div>
 

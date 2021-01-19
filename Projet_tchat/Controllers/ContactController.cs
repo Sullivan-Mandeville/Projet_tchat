@@ -32,7 +32,7 @@ namespace Projet_tchat.Controllers
              
                     MessageDTO temporaire = dernier_message.LastOrDefault();
                     temp.message = temporaire;
-                    System.Diagnostics.Debug.WriteLine("Message : " + temp.message);
+                  //  System.Diagnostics.Debug.WriteLine("Message : " + temp.message);
                 
 
                 Contact_message.Add(temp);
